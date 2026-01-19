@@ -16,6 +16,7 @@
   "dependencies": {
     "@hugeicons/core-free-icons": "^3.1.1",
     "@hugeicons/vue": "^1.0.4",
+    "@solomonmarvel97/gitcommitmessage": "^0.3.0",
     "@tailwindcss/vite": "^4.1.18",
     "pinia": "^3.0.4",
     "tailwindcss": "^4.1.18",
