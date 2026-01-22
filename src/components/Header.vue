@@ -1,6 +1,6 @@
 <template>
   <header class="w-full bg-white shadow">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto py-4 flex items-center justify-between">
       <!-- Left: Logo + Menu -->
       <div class="flex items-center gap-20">
         <div class="logo">
