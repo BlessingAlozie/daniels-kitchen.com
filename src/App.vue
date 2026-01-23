@@ -1,11 +1,12 @@
 <template>
   <Header />
-  <HeroBlock />
+  <Index />
 </template>
 
 <script setup>
 import Header from './components/Header.vue'
-import HeroBlock from './blocks/HeroBlock.vue'
+import Index from './pages/Index.vue'
+
 </script>
 
 <style lang="scss" scoped></style>
