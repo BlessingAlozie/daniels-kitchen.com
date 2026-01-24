@@ -2,10 +2,10 @@
   <section class="w-full bg-gray-100 mt-10 pt-20 pb-10">
     <!-- Header -->
     <div class="max-w-7xl mx-auto text-center px-4">
-      <h1 class="text-4xl md:text-6xl text-black font-bold mb-2">
+      <h1 class="text-4xl md:text-5xl text-black font-bold mb-4">
         Why Choose <span class="text-red-600">Us?</span>
       </h1>
-      <p class="text-base md:text-lg text-black max-w-xl mx-auto">
+      <p class="text-base text-gray-600 max-w-xl mx-auto">
         Because good food should feel like home and arrive right on time.
       </p>
     </div>
@@ -162,7 +162,7 @@ onBeforeUnmount(() => {
 }
 /* Arrow buttons */
 .splide__arrow {
-  background: #dc2626;
+  background: #22c55e;
   opacity: 1;
 }
 

@@ -4,12 +4,12 @@
       class="wrapper max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between pt-10 pb-10"
     >
       <div class="text">
-        <h1 class="text-3xl md:text-6xl text-black font-bold max-w-lg leading-tight mb-4">
+        <h1 class="text-4xl md:text-5xl text-black font-bold max-w-lg leading-tight mb-4">
           Order Now and Get Fast
           <span class="text-red-600">Delivery</span>
         </h1>
 
-        <p class="text-base md:text-lg text-black mb-6 max-w-md">
+        <p class="text-base text-gray-600 mb-6 max-w-md">
           Fresh meals from your favorite restaurants, delivered hot and on time.
         </p>
       </div>

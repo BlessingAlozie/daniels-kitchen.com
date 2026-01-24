@@ -2,12 +2,12 @@
   <section class="w-full min-h-screen">
     <div class="max-w-7xl mx-auto py-10 px-4">
       <div class="text-center flex flex-col items-center">
-        <h1 class="text-4xl md:text-6xl text-black font-bold leading-tight mb-2">
+        <h1 class="text-4xl md:text-5xl text-black font-bold leading-tight mb-4">
           Our Regular
           <span class="text-red-600">Food</span>
         </h1>
 
-        <p class="text-base md:text-lg text-black mb-4 max-w-md">
+        <p class="text-base text-gray-600 mb-4 max-w-md">
           Everyday meals, cooked the way home should taste.
         </p>
       </div>

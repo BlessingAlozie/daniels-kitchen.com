@@ -3,8 +3,15 @@
     <div class="max-w-7xl mx-auto py-4 flex items-center justify-between">
       <!-- Left: Logo + Menu -->
       <div class="flex items-center gap-20">
-        <div class="logo">
+        <!-- <div class="logo">
           <img src="/logo.svg" alt="Logo" class="h-12" />
+        </div> -->
+        <div class="flex items-center gap-4">
+          <div class="text-left">
+            <span class="text-red-600 text-2xl font-bold italic">Daniel's</span>
+            <span class="block text-black text-lg font-semibold">Kitchen</span>
+          </div>
+          <div class="hidden lg:block w-px h-12 bg-gray-300"></div>
         </div>
 
         <!-- Desktop Menu -->

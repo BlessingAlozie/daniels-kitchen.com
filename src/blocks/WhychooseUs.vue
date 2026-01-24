@@ -1,10 +1,10 @@
 <template>
   <section class="w-full bg-gray-100 mt-10 pt-20 pb-10">
     <div class="max-w-7xl mx-auto text-center item-center">
-      <h1 class="text-4xl md:text-6xl text-black font-bold leading-tight mb-2">
+      <h1 class="text-4xl md:text-5xl text-black font-bold leading-tight mb-4">
         Why Choose <span class="text-red-600">Us ?</span>
       </h1>
-      <p class="text-base md:text-lg text-black leading-tight">
+      <p class="text-base text-gray-600 leading-tight">
         Because good food should feel like home and arrive right on time.
       </p>
     </div>

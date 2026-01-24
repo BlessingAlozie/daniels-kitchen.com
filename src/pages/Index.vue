@@ -5,6 +5,7 @@
   <WhychooseUs />
   <RegularMeal />
   <Testimonials />
+  <BlogSection />
 </template>
 
 <script setup>
@@ -14,6 +15,7 @@ import SpecialMenu from '@/blocks/SpecialMenu.vue'
 import WhychooseUs from '@/blocks/WhychooseUs.vue'
 import RegularMeal from '@/blocks/RegularMeal.vue'
 import Testimonials from '@/blocks/Testimonials.vue'
+import BlogSection from '@/blocks/BlogSection.vue'
 </script>
 
 
