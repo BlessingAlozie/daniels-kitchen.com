@@ -44,15 +44,22 @@
 
 <script setup>
 import { ref } from 'vue'
+import { defineProps, defineEmits } from 'vue'
 
-defineProps({
+/* props */
+const props = defineProps({
   name: String,
   price: Number,
   image: String,
 })
 
+/* emits */
+const emit = defineEmits(['add-to-cart'])
+
+/* local state */
 const quantity = ref(1)
 
+/* methods */
 const increase = () => {
   quantity.value++
 }
@@ -60,7 +67,11 @@ const decrease = () => {
   if (quantity.value > 1) quantity.value--
 }
 const addToCart = () => {
-  console.log('Added:', quantity.value)
+  emit('add-to-cart', {
+    name: props.name,
+    price: props.price,
+    quantity: quantity.value,
+  })
 }
 
 const img =
