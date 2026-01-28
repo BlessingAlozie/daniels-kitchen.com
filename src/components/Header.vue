@@ -35,7 +35,7 @@
       <!-- Right: Actions-->
       <div class="flex items-center gap-4">
         <p class="cursor-pointer text-lg flex items-center">
-          <i class="fa-solid fa-basket-shopping text-2xl mr-2"></i> {{ cartCount }} Cart
+          <i class="fa-solid fa-basket-shopping text-2xl mr-2"></i>Cart
         </p>
 
         <button
