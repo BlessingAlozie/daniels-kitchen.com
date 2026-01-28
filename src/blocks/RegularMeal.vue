@@ -21,12 +21,14 @@
         :name="food.name"
         :price="food.price"
         :image="food.image"
+        @add-to-cart="$emit('add-to-cart', $event)"
       />
     </section>
   </section>
 </template>
 
 <script setup>
+import { defineEmits } from 'vue'
 import FoodCard from '@/components/FoodCard.vue'
 
 const categories = ['All Food', 'Soup', 'Rice', 'Pastries', 'Pizza', 'Fresh Juice', 'Salads']
