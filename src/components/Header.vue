@@ -33,13 +33,21 @@
       </div>
 
       <!-- Right: Actions-->
-      <div class="flex items-center gap-4">
-        <p class="cursor-pointer text-lg flex items-center">
-          <i class="fa-solid fa-basket-shopping text-2xl mr-2"></i>Cart
-        </p>
+      <div class="flex items-center gap-4 relative">
+        <div class="relative cursor-pointer flex items-center gap-1">
+          <i class="fa-solid fa-basket-shopping text-2xl"></i>
+
+          <!-- Badge -->
+          <span
+            v-if="cart.totalItems > 0"
+            class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center font-bold"
+          >
+            {{ cart.totalItems }}
+          </span>
+        </div>
 
         <button
-          class="hidden md:block text-lg bg-red-600 text-white px-4 py-2 rounded-4xl hover:bg-black hover:text-red-600 transition"
+          class="hidden md:block text-lg bg-red-600 text-white px-4 py-2 rounded-full hover:bg-black hover:text-red-600 transition"
         >
           Order Now
         </button>
@@ -87,6 +95,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useCartStore } from '@/stores/cart'
+
+const cart = useCartStore()
 
 const activeLink = ref('Home')
 const menuLinks = ['Home', 'Menu', 'Reviews', 'Blog']

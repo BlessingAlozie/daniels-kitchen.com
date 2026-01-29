@@ -15,8 +15,8 @@
         </div>
 
         <!-- Subscribe Section -->
-        <div class="flex flex-col md:flex-row md:items-center gap-4 lg:gap-8">
-          <div>
+        <div class="flex flex-col md:flex-row md:items-center gap-4 lg:gap-8 flex-wrap">
+          <div class="">
             <h3 class="font-bold text-black text-lg">Subscribe to stay updated</h3>
             <p class="text-xs text-gray-500">
               Get the latest food tips, health insights, and updates straight to your inbox.

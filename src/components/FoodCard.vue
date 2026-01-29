@@ -10,7 +10,7 @@
     <div class="p-4 text-black flex flex-col justify-between flex-1">
       <div class="name flex justify-between">
         <h3 class="font-bold text-lg">{{ name }}</h3>
-        <h3 class="total-amount text-green-500">₦{{ price }}</h3>
+        <h3 class="total-amount text-green-500">₦{{ totalPrice }}</h3>
       </div>
 
       <!-- Quantity + Add button -->
@@ -31,7 +31,7 @@
           </button>
         </div>
         <button
-          class="addBTN bg-green-500 text-white px-6 py-2 text-center rounded-full hover:bg-red-600 transition"
+          class="addBTN cursor-pointer bg-green-500 text-white px-6 py-2 text-center rounded-full hover:bg-red-600 transition"
           @click="addToCart"
         >
           <i class="fa-solid fa-basket-shopping text-md mr-2"></i>
@@ -43,8 +43,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { defineProps, defineEmits } from 'vue'
+import { computed, ref } from 'vue'
+import { useCartStore } from '@/stores/cart'
+const cart = useCartStore()
 
 /* props */
 const props = defineProps({
@@ -53,24 +54,30 @@ const props = defineProps({
   image: String,
 })
 
-/* emits */
-const emit = defineEmits(['add-to-cart'])
-
-/* local state */
+/* quantity  state */
 const quantity = ref(1)
 
-/* methods */
+/* Increase quantity */
 const increase = () => {
   quantity.value++
 }
+
+/* reduce quantity */
 const decrease = () => {
   if (quantity.value > 1) quantity.value--
 }
+
+// calculate total price
+const totalPrice = computed(() => {
+  return props.price * quantity.value
+})
+/*calling pinia store */
 const addToCart = () => {
-  emit('add-to-cart', {
+  cart.addFoodToCart({
     name: props.name,
     price: props.price,
     quantity: quantity.value,
+    total: totalPrice.value,
   })
 }
 
