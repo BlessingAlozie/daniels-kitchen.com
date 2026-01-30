@@ -115,5 +115,19 @@ const foods = [
     image:
       'https://image2url.com/r2/default/images/1769155907234-e4dd47b7-4afd-4469-a852-e4d14ce7e211.jpg',
   },
+  {
+    id: 4,
+    name: 'cake',
+    price: 20000,
+    image:
+      'https://image2url.com/r2/default/images/1769805287001-37933905-3db8-47ec-abdf-c7ec54465a2b.jpeg',
+  },
+  {
+    id: 4,
+    name: 'Milkshake',
+    price: 8500,
+    image:
+      'https://image2url.com/r2/default/images/1769805451378-1411fc97-cb3c-4f13-b7ce-b0fb59f517b5.jpeg',
+  },
 ]
 </script>

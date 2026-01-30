@@ -3,7 +3,8 @@ import { defineStore } from "pinia";
 
 export const useCartStore = defineStore('cart', {
   state: () => ({
-    cartItems: []
+    cartItems: [],
+    isCartOpen: false,
   }),
   getters: {
     totalQuantity: (state) => {
@@ -38,6 +39,16 @@ export const useCartStore = defineStore('cart', {
       if (food && food.quantity > 1) {
         food.quantity--
       }
+    },
+
+    toggleCart() {
+      this.isCartOpen = !this.isCartOpen
+    },
+    openCart() {
+      this.isCartOpen = true
+    },
+    closeCart() {
+      this.isCartOpen = false
     }
   }
 
