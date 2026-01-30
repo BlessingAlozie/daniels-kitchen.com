@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full sticky top-0 z-50 bg-white shadow">
+  <header class="w-full sticky top-0 z-50 bg-white shadow-lg">
     <div class="max-w-7xl mx-auto py-4 px-4 flex items-center justify-between">
       <!-- Left: Logo + Menu -->
       <div class="flex items-center gap-20">
@@ -35,10 +35,10 @@
         <div class="relative cursor-pointer flex items-center gap-1">
           <i class="fa-solid fa-basket-shopping text-2xl"></i>
           <span
-            v-if="cart.totalItems > 0"
+            v-if="cart.totalQuantity > 0"
             class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center font-bold"
           >
-            {{ cart.totalItems }}
+            {{ cart.totalQuantity }}
           </span>
         </div>
 
@@ -92,7 +92,6 @@
 <script setup>
 import { ref } from 'vue'
 import { useCartStore } from '@/stores/cart'
-
 const cart = useCartStore()
 const menuOpen = ref(false)
 

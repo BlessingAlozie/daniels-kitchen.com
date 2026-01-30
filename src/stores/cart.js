@@ -5,17 +5,43 @@ export const useCartStore = defineStore('cart', {
   state: () => ({
     cartItems: []
   }),
-
   getters: {
-    totalItems(cartState) {
-      return cartState.cartItems.length
+    totalQuantity: (state) => {
+      return state.cartItems.reduce((sum, food) => sum + food.quantity, 0)
     }
   },
 
   actions: {
     addFoodToCart(food) {
-      this.cartItems.push(food)
+      // check if food already exist
+      const existing = this.cartItems.find(item => item.id === food.id)
+      if (existing) {
+        existing.quantity++
+      } else {
+        this.cartItems.push({ ...food, quantity: 1 })
+      }
+    },
+
+    removeFoodFromCart(foodId) {
+      this.cartItems = this.cartItems.filter(item => item.id !== foodId)
+    },
+
+    increaseFoodQuantity(foodId) {
+      const food = this.cartItems.find(item => item.id === foodId)
+      if (food) {
+        food.quantity++
+      }
+    },
+
+    decreaseFoodQuantity(foodId) {
+      const food = this.cartItems.find(item => item.id === foodId)
+      if (food && food.quantity > 1) {
+        food.quantity--
+      }
     }
   }
 
+
 })
+
+

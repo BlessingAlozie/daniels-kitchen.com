@@ -43,18 +43,19 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useCartStore } from '@/stores/cart'
+
 const cart = useCartStore()
 
-/* props */
+/* Props passed to the card */
 const props = defineProps({
   name: String,
   price: Number,
   image: String,
 })
 
-/* quantity  state */
+/* Local quantity state */
 const quantity = ref(1)
 
 /* Increase quantity */
@@ -62,36 +63,38 @@ const increase = () => {
   quantity.value++
 }
 
-/* reduce quantity */
+/* Decrease quantity */
 const decrease = () => {
   if (quantity.value > 1) quantity.value--
 }
 
-// calculate total price
+/* Compute total price for display */
 const totalPrice = computed(() => {
   return props.price * quantity.value
 })
-/*calling pinia store */
+
+/* Add item to cart */
 const addToCart = () => {
   cart.addFoodToCart({
+    id: props.name, // unique id, can also use UUID if you want
     name: props.name,
     price: props.price,
+    image: props.image,
     quantity: quantity.value,
-    total: totalPrice.value,
   })
-}
 
-const img =
-  'https://image2url.com/r2/default/images/1769120124455-c94ede40-e3be-43b6-afa2-5d8099c4136e.jpeg'
+  // Optional: reset local quantity to 1 after adding
+  quantity.value = 1
+}
 </script>
 
-<style scope>
+<style scoped>
 .total-amount {
   font-weight: 800;
 }
 .quantity {
   align-content: center;
   align-items: center;
-  font-weight: 6 00;
+  font-weight: 600;
 }
 </style>

@@ -16,6 +16,7 @@
   "dependencies": {
     "@hugeicons/core-free-icons": "^3.1.1",
     "@hugeicons/vue": "^1.0.4",
+    "@phosphor-icons/vue": "^2.2.1",
     "@solomonmarvel97/gitcommitmessage": "^0.3.0",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
