@@ -1,43 +1,39 @@
 <template>
   <header class="w-full sticky top-0 z-50 bg-white shadow">
-    <div class="max-w-7xl mx-auto py-4 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto py-4 px-4 flex items-center justify-between">
       <!-- Left: Logo + Menu -->
       <div class="flex items-center gap-20">
-        <!-- <div class="logo">
-          <img src="/logo.svg" alt="Logo" class="h-12" />
-        </div> -->
         <div class="flex items-center gap-4">
           <div class="text-left">
-            <span class="text-red-600 text-2xl font-bold italic">Daniel's</span>
-            <span class="block text-black text-lg font-semibold">Kitchen</span>
+            <router-link to="/">
+              <span class="text-red-600 text-2xl font-bold italic">Daniel's</span>
+              <span class="block text-black text-lg font-semibold">Kitchen</span>
+            </router-link>
           </div>
           <div class="hidden lg:block w-px h-12 bg-gray-300"></div>
         </div>
 
         <!-- Desktop Menu -->
-        <nav class="hidden md:block">
+        <nav class="hidden md:block max-w-7xl mx-auto py-4 px-4">
           <ul class="flex gap-10">
-            <li
-              v-for="link in menuLinks"
-              :key="link"
-              @click="setActive(link)"
-              :class="[
-                'cursor-pointer text-lg hover:text-red-600 transition-colors duration-200',
-                activeLink.value === link ? 'text-red-600 font-bold' : '',
-              ]"
-            >
-              {{ link }}
+            <li v-for="link in menuLinks" :key="link.name">
+              <router-link
+                :to="{ name: link.routeName }"
+                class="cursor-pointer text-lg hover:text-red-600 transition-colors duration-200"
+                active-class="text-red-600 font-bold"
+                exact
+              >
+                {{ link.name }}
+              </router-link>
             </li>
           </ul>
         </nav>
       </div>
 
-      <!-- Right: Actions-->
+      <!-- Right: Actions -->
       <div class="flex items-center gap-4 relative">
         <div class="relative cursor-pointer flex items-center gap-1">
           <i class="fa-solid fa-basket-shopping text-2xl"></i>
-
-          <!-- Badge -->
           <span
             v-if="cart.totalItems > 0"
             class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center font-bold"
@@ -47,13 +43,13 @@
         </div>
 
         <button
-          class="hidden md:block text-lg bg-red-600 text-white px-4 py-2 rounded-full hover:bg-black hover:text-red-600 transition"
+          @click="$router.push({ name: 'Menu' })"
+          class="hidden md:block text-lg bg-red-600 text-white px-4 py-2 rounded-full hover:bg-green-500 cursor-pointer hover:text-white transition"
         >
           Order Now
         </button>
 
-        <!-- Mobile view -->
-        <!-- Hamburger -->
+        <!-- Mobile Hamburger -->
         <button
           @click="menuOpen = !menuOpen"
           class="md:hidden flex flex-col gap-1 w-8 h-6 justify-center items-center"
@@ -77,16 +73,16 @@
     <!-- Mobile Menu -->
     <nav v-if="menuOpen" class="md:hidden bg-white shadow-lg">
       <ul class="flex flex-col gap-4 px-4 py-4">
-        <li
-          v-for="link in menuLinks"
-          :key="link"
-          @click="setActive(link)"
-          :class="[
-            'cursor-pointer text-lg hover:text-red-600 transition-colors duration-200',
-            activeLink.value === link ? 'text-red-600 font-bold' : '',
-          ]"
-        >
-          {{ link }}
+        <li v-for="link in menuLinks" :key="link.name">
+          <router-link
+            :to="{ name: link.routeName }"
+            class="cursor-pointer text-lg hover:text-red-600 transition-colors duration-200"
+            active-class="text-red-600 font-bold"
+            exact
+            @click="menuOpen = false"
+          >
+            {{ link.name }}
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -98,13 +94,12 @@ import { ref } from 'vue'
 import { useCartStore } from '@/stores/cart'
 
 const cart = useCartStore()
-
-const activeLink = ref('Home')
-const menuLinks = ['Home', 'Menu', 'Reviews', 'Blog']
 const menuOpen = ref(false)
 
-function setActive(item) {
-  activeLink.value = item
-  menuOpen.value = false // close mobile menu when a link is clicked
-}
+const menuLinks = [
+  { name: 'Home', routeName: 'Home' },
+  { name: 'Menu', routeName: 'Menu' },
+  { name: 'Reviews', routeName: 'Reviews' },
+  { name: 'Blog', routeName: 'Blog' },
+]
 </script>
