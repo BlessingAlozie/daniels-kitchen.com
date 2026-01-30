@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full bg-white py-12 lg:py-20 overflow-hidden">
+  <section class="w-full bg-white py-12 lg:py-20 scroll-smooth overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
       <!-- Left Content -->
       <div class="flex-1 text-center lg:text-left">
@@ -27,7 +27,7 @@
       <div class="flex-1 relative flex justify-center items-center">
         <!-- Main Plate Container -->
         <div
-          class="relative w-[400px] h-[400px] md:w-[480px] md:h-[480px] lg:w-[520px] lg:h-[520px]"
+          class="relative w-[260px] h-[260px] sm:w-[480px] sm:h-[480px] md:w-[480px] md:h-[480px] lg:w-[520px] lg:h-[520px]"
         >
           <!-- Decorative Plate Image -->
           <div class="absolute inset-0 rounded-full overflow-hidden">
@@ -183,11 +183,51 @@
       </div>
     </div>
   </section>
+  <!-- food card display -->
+  <section class="w-full bg-white py-20">
+    <div
+      class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+    >
+      <FoodCard
+        v-for="food in foodies"
+        :key="id"
+        :name="food.name"
+        :price="food.price"
+        :image="food.image"
+      />
+    </div>
+  </section>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
-
+import FoodCard from '@/components/FoodCard.vue'
+const foodies = [
+  {
+    name: 'Okro Soup',
+    price: 5000,
+    image:
+      'https://image2url.com/r2/default/images/1769293626353-82e97ab5-4918-4663-92cf-547bca0257c7.jpeg',
+  },
+  {
+    name: 'Beans',
+    price: 4000,
+    image:
+      'https://image2url.com/r2/default/images/1769293288526-0e86ffb5-b837-4a13-965a-83a9f2596f67.jpeg',
+  },
+  {
+    name: 'Jollof Rice',
+    price: 7000,
+    image:
+      'https://image2url.com/r2/default/images/1769293223962-4feabeb8-facc-4bca-8558-bf3384c29134.jpeg',
+  },
+  {
+    name: 'Egusi Soup',
+    price: 3000,
+    image:
+      'https://image2url.com/r2/default/images/1769293106573-b27e1a24-7073-4273-9f6d-be70ef60e237.jpeg',
+  },
+]
 const foods = [
   {
     name: 'Rolls',

@@ -1,7 +1,7 @@
 <template>
   <section class="w-full bg-gray-100">
     <div
-      class="wrapper max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between pt-10 pb-10"
+      class="wrapper max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 pt-10 pb-10"
     >
       <div class="text">
         <h1 class="text-4xl md:text-5xl text-black font-bold max-w-lg leading-tight mb-4">

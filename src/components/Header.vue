@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full bg-white shadow">
+  <header class="w-full sticky top-0 z-50 bg-white shadow">
     <div class="max-w-7xl mx-auto py-4 flex items-center justify-between">
       <!-- Left: Logo + Menu -->
       <div class="flex items-center gap-20">

@@ -15,14 +15,14 @@
         </div>
 
         <!-- Subscribe Section -->
-        <div class="flex flex-col md:flex-row md:items-center gap-4 lg:gap-8 flex-wrap">
+        <div class="flex flex-row md:flex-row md:items-center gap-4 lg:gap-8 flex-wrap">
           <div class="">
             <h3 class="font-bold text-black text-lg">Subscribe to stay updated</h3>
             <p class="text-xs text-gray-500">
               Get the latest food tips, health insights, and updates straight to your inbox.
             </p>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <div class="relative">
               <svg
                 class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
@@ -40,7 +40,7 @@
               <input
                 type="email"
                 placeholder="Enter Email Address"
-                class="pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg w-64 text-sm focus:outline-none focus:border-red-500 bg-white"
+                class="pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg w-full sm:w-64 text-sm focus:outline-none focus:border-red-500 bg-white"
               />
             </div>
             <button
