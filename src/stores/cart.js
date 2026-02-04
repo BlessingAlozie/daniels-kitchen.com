@@ -5,11 +5,22 @@ export const useCartStore = defineStore('cart', {
   state: () => ({
     cartItems: [],
     isCartOpen: false,
+
+
+
   }),
   getters: {
     totalQuantity: (state) => {
       return state.cartItems.reduce((sum, food) => sum + food.quantity, 0)
-    }
+    },
+
+    subTotal: (state) => {
+      return state.cartItems.reduce((total, item) => total + Number(item.price) * item.quantity, 0)
+    },
+
+
+
+
   },
 
   actions: {
@@ -40,6 +51,7 @@ export const useCartStore = defineStore('cart', {
         food.quantity--
       }
     },
+
 
     toggleCart() {
       this.isCartOpen = !this.isCartOpen

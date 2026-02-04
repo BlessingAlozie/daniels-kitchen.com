@@ -50,6 +50,24 @@
             @click="theCart.removeFoodFromCart(foodItem.id)"
           />
         </div>
+        <div class="pt-4">
+          <div class="relative">
+            <p>Subtotal:</p>
+            <strong class="absolute top-0 right-0"> ₦{{ theCart.subTotal }}</strong>
+          </div>
+        </div>
+        <div class="pt-4">
+          <div class="relative">
+            <p>Delivery Fee:</p>
+            <p class="absolute top-0 right-0">0.00</p>
+          </div>
+        </div>
+        <div class="pt-4">
+          <div class="relative">
+            <p>Total:</p>
+            <strong class="absolute top-0 right-0"> ₦{{ theCart.subTotal }}</strong>
+          </div>
+        </div>
 
         <!-- Checkout button -->
         <button
@@ -68,4 +86,5 @@ import { useCartStore } from '@/stores/cart'
 const theCart = useCartStore()
 
 const modalOpen = ref(true)
+const delivery = ref(3000)
 </script>

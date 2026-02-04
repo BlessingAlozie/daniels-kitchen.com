@@ -70,20 +70,20 @@ const decrease = () => {
 
 /* Compute total price for display */
 const totalPrice = computed(() => {
-  return props.price * quantity.value
+  return (props.price * quantity.value).toLocaleString()
 })
 
 /* Add item to cart */
 const addToCart = () => {
   cart.addFoodToCart({
-    id: props.name, // unique id, can also use UUID if you want
+    id: props.name,
     name: props.name,
     price: props.price,
     image: props.image,
     quantity: quantity.value,
   })
 
-  // Optional: reset local quantity to 1 after adding
+  // reset local quantity to 1 after adding
   quantity.value = 1
 }
 </script>
