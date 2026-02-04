@@ -50,31 +50,33 @@
             @click="theCart.removeFoodFromCart(foodItem.id)"
           />
         </div>
-        <div class="pt-4">
-          <div class="relative">
-            <p>Subtotal:</p>
-            <strong class="absolute top-0 right-0"> ₦{{ theCart.subTotal }}</strong>
+        <div class="mt-20">
+          <div class="pt-4">
+            <div class="relative">
+              <p>Subtotal:</p>
+              <strong class="absolute top-0 right-0"> ₦{{ theCart.subTotal }}</strong>
+            </div>
           </div>
-        </div>
-        <div class="pt-4">
-          <div class="relative">
-            <p>Delivery Fee:</p>
-            <p class="absolute top-0 right-0">0.00</p>
+          <div class="pt-4">
+            <div class="relative">
+              <p>Delivery Fee:</p>
+              <p class="absolute top-0 right-0">0.00</p>
+            </div>
           </div>
-        </div>
-        <div class="pt-4">
-          <div class="relative">
-            <p>Total:</p>
-            <strong class="absolute top-0 right-0"> ₦{{ theCart.subTotal }}</strong>
+          <div class="pt-4">
+            <div class="relative">
+              <p>Total:</p>
+              <strong class="absolute top-0 right-0"> ₦{{ theCart.subTotal }}</strong>
+            </div>
           </div>
-        </div>
 
-        <!-- Checkout button -->
-        <button
-          class="mt-6 w-full bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
-        >
-          Checkout {{ theCart.totalQuantity }} items
-        </button>
+          <!-- Checkout button -->
+          <button
+            class="mt-6 w-full bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+          >
+            Checkout {{ theCart.totalQuantity }} items
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -86,5 +88,4 @@ import { useCartStore } from '@/stores/cart'
 const theCart = useCartStore()
 
 const modalOpen = ref(true)
-const delivery = ref(3000)
 </script>
