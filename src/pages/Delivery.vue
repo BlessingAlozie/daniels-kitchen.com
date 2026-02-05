@@ -13,6 +13,7 @@
                   <label class="block text-sm font-medium mb-1">Full Name</label>
                   <input
                     type="text"
+                    @input="clearError('name')"
                     placeholder="Enter full name"
                     v-model="checkoutForm.name"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-black"
@@ -23,6 +24,7 @@
                 <div>
                   <label class="block text-sm font-medium mb-1">Phone</label>
                   <input
+                    @input="clearError('phone')"
                     type="tel"
                     placeholder="Enter phone number"
                     v-model="checkoutForm.phone"
@@ -36,6 +38,7 @@
                 <div>
                   <label class="block text-sm font-medium mb-1">Email</label>
                   <input
+                    @input="clearError('email')"
                     type="email"
                     placeholder="Enter email"
                     v-model="checkoutForm.email"
@@ -47,6 +50,7 @@
                 <div>
                   <label class="block text-sm font-medium mb-1">Address</label>
                   <input
+                    @input="clearError('address')"
                     type="text"
                     placeholder="Enter delivery address"
                     v-model="checkoutForm.address"
@@ -92,6 +96,7 @@
               <div class="md:flex justify-between py-5">
                 <label class="flex items-center gap-3 cursor-pointer">
                   <input
+                    @input="clearError('paymentMethod')"
                     type="radio"
                     name="payment"
                     v-model="checkoutForm.paymentMethod"
@@ -103,6 +108,7 @@
 
                 <label class="flex items-center gap-3 cursor-pointer">
                   <input
+                    @input="clearError('paymentMethod')"
                     type="radio"
                     v-model="checkoutForm.paymentMethod"
                     value="cash_on_delivery"
@@ -114,6 +120,7 @@
 
                 <label class="flex items-center gap-3 cursor-pointer">
                   <input
+                    @input="clearError('paymentMethod')"
                     type="radio"
                     name="payment"
                     value="pos_on_delivery"
@@ -206,6 +213,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useCartStore } from '@/stores/cart'
+import { watch } from 'vue'
 const theCart = useCartStore()
 
 const checkoutForm = ref({
@@ -238,5 +246,9 @@ const validateForm = () => {
   if (!checkoutForm.value.paymentMethod.trim()) {
     errors.value.paymentMethod = ' Payment is required'
   }
+}
+
+const clearError = (field) => {
+  delete errors.value[field]
 }
 </script>
