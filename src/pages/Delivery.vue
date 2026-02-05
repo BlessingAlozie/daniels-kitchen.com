@@ -14,8 +14,10 @@
                   <input
                     type="text"
                     placeholder="Enter full name"
+                    v-model="checkoutForm.name"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-black"
                   />
+                  <p class="text-red-500" v-if="errors.name">{{ errors.name }}</p>
                 </div>
 
                 <div>
@@ -23,8 +25,10 @@
                   <input
                     type="tel"
                     placeholder="Enter phone number"
+                    v-model="checkoutForm.phone"
                     class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-1 border-gray-300 focus:ring-black"
                   />
+                  <p class="text-red-500" v-if="errors.phone">{{ errors.phone }}</p>
                 </div>
               </div>
 
@@ -34,8 +38,10 @@
                   <input
                     type="email"
                     placeholder="Enter email"
+                    v-model="checkoutForm.email"
                     class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-1 border-gray-300 focus:ring-black"
                   />
+                  <p class="text-red-500" v-if="errors.email">{{ errors.email }}</p>
                 </div>
 
                 <div>
@@ -43,8 +49,10 @@
                   <input
                     type="text"
                     placeholder="Enter delivery address"
+                    v-model="checkoutForm.address"
                     class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-1 border-gray-300 focus:ring-black"
                   />
+                  <p class="text-red-500" v-if="errors.address">{{ errors.address }}</p>
                 </div>
               </div>
             </div>
@@ -60,6 +68,7 @@
                 <label class="block text-sm font-medium mb-1">Delivery Date</label>
                 <input
                   type="date"
+                  v-model="checkoutForm.date"
                   class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-1 border-gray-300 focus:ring-black"
                 />
               </div>
@@ -69,6 +78,7 @@
                 <textarea
                   rows="3"
                   placeholder="Add a delivery note (optional)"
+                  v-model="checkoutForm.note"
                   class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-1 border-gray-300 focus:ring-black"
                 ></textarea>
               </div>
@@ -78,21 +88,42 @@
           <!-- Payment Method -->
           <div>
             <h3 class="text-xl font-semibold mb-4">Payment Method</h3>
-            <div class="bg-white md:flex md:itms-center rounded-lg shadow-sm p-6 justify-between">
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="radio" name="payment" class="accent-red-600" />
-                <span>Bank Transfer</span>
-              </label>
+            <div class="bg-white md:itms-center rounded-lg shadow-sm p-6">
+              <div class="md:flex justify-between py-5">
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="payment"
+                    v-model="checkoutForm.paymentMethod"
+                    value="bank_transfer"
+                    class="accent-red-600"
+                  />
+                  <span>Bank Transfer</span>
+                </label>
 
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="radio" name="payment" class="accent-red-600" />
-                <span>Cash on Delivery</span>
-              </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    v-model="checkoutForm.paymentMethod"
+                    value="cash_on_delivery"
+                    name="payment"
+                    class="accent-red-600"
+                  />
+                  <span>Cash on Delivery</span>
+                </label>
 
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="radio" name="payment" class="accent-red-600" />
-                <span>POS on Delivery</span>
-              </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="pos_on_delivery"
+                    v-model="checkoutForm.paymentMethod"
+                    class="accent-red-600"
+                  />
+                  <span>POS on Delivery</span>
+                </label>
+              </div>
+              <p class="text-red-500" v-if="errors.paymentMethod">{{ errors.paymentMethod }}</p>
             </div>
           </div>
         </div>
@@ -161,7 +192,8 @@
             </div>
 
             <button
-              class="w-full bg-red-600 text-white py-3 rounded-md hover:bg-red-700 transition"
+              @click="validateForm"
+              class="w-full bg-red-600 text-white py-3 rounded-md hover:bg-red-700 cursor-pointer transition"
             >
               Place Order
             </button>
@@ -172,6 +204,39 @@
   </section>
 </template>
 <script setup>
+import { ref } from 'vue'
 import { useCartStore } from '@/stores/cart'
 const theCart = useCartStore()
+
+const checkoutForm = ref({
+  name: '',
+  phone: '',
+  email: '',
+  address: '',
+  paymentMethod: '',
+  date: '',
+  note: '',
+})
+
+const errors = ref({})
+
+const validateForm = () => {
+  errors.value = {}
+
+  if (!checkoutForm.value.name.trim()) {
+    errors.value.name = 'Name is required'
+  }
+  if (!checkoutForm.value.phone.trim()) {
+    errors.value.phone = 'Phone number is required'
+  }
+  if (!checkoutForm.value.email.trim()) {
+    errors.value.email = 'Email number is required'
+  }
+  if (!checkoutForm.value.address.trim()) {
+    errors.value.address = 'Address number is required'
+  }
+  if (!checkoutForm.value.paymentMethod.trim()) {
+    errors.value.paymentMethod = ' Payment is required'
+  }
+}
 </script>
