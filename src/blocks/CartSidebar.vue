@@ -72,10 +72,14 @@
 
           <!-- Checkout button -->
           <button
-            class="mt-6 w-full bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+            @click="handleCheckout"
+            class="mt-6 w-full bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 cursor-pointer transition"
           >
             Checkout {{ theCart.totalQuantity }} items
           </button>
+          <p v-if="errorMessage" class="mt-3 text-sm text-red-600 text-center">
+            {{ errorMessage }}
+          </p>
         </div>
       </div>
     </div>
@@ -85,7 +89,36 @@
 <script setup>
 import { ref } from 'vue'
 import { useCartStore } from '@/stores/cart'
+import { useRouter } from 'vue-router'
+import { watch } from 'vue'
+
 const theCart = useCartStore()
+const router = useRouter()
 
 const modalOpen = ref(true)
+
+const errorMessage = ref('')
+
+const handleCheckout = () => {
+  if (theCart.totalQuantity === 0) {
+    errorMessage.value = 'Your cart is empty. Please add items before checkout.'
+    return
+  }
+
+  // cart has items → go to delivery page
+  errorMessage.value = ''
+  router.push({ name: 'Delivery' })
+  theCart.isCartOpen = !theCart.isCartOpen
+}
+
+watch(
+  () => theCart.totalQuantity,
+  (qty) => {
+    if (qty > 0) {
+      errorMessage.value = ''
+    }
+  }
+)
 </script>
+
+
