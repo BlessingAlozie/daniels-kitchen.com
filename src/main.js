@@ -13,4 +13,9 @@ app.use(createPinia())
 app.use(router)
 app.use(PhosphorIcons)
 
+import { useCartStore } from './stores/cart'
+const cart = useCartStore()
+cart.loadCartFromLocalStorage()  // <--- load saved cart
+
+
 app.mount('#app')

@@ -32,10 +32,13 @@ export const useCartStore = defineStore('cart', {
       } else {
         this.cartItems.push({ ...food, quantity: 1 })
       }
+
+      this.saveCartToLocalStorage()
     },
 
     removeFoodFromCart(foodId) {
       this.cartItems = this.cartItems.filter(item => item.id !== foodId)
+      this.saveCartToLocalStorage()
     },
 
     increaseFoodQuantity(foodId) {
@@ -43,6 +46,8 @@ export const useCartStore = defineStore('cart', {
       if (food) {
         food.quantity++
       }
+
+      this.saveCartToLocalStorage()
     },
 
     decreaseFoodQuantity(foodId) {
@@ -50,6 +55,7 @@ export const useCartStore = defineStore('cart', {
       if (food && food.quantity > 1) {
         food.quantity--
       }
+      this.saveCartToLocalStorage()
     },
 
 
@@ -61,10 +67,20 @@ export const useCartStore = defineStore('cart', {
     },
     closeCart() {
       this.isCartOpen = false
+    },
+
+    // initialize local storage
+    saveCartToLocalStorage() {
+      localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
+    },
+
+    loadCartFromLocalStorage() {
+      const storedCart = localStorage.getItem('cartItems')
+      if (storedCart) this.cartItems = JSON.parse(storedCart)
+
     }
+
   }
-
-
 })
 
 
