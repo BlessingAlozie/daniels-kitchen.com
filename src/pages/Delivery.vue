@@ -214,7 +214,10 @@
 import { ref } from 'vue'
 import { useCartStore } from '@/stores/cart'
 import { watch } from 'vue'
+import { supabase } from '../../lib/supabase'
+
 const theCart = useCartStore()
+console.log(supabase)
 
 const checkoutForm = ref({
   name: '',
