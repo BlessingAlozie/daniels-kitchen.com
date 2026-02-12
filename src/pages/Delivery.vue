@@ -209,14 +209,22 @@
       </div>
     </div>
   </section>
+  <BaseModal v-model="showModal" :type="modalType" :message="modalMessage" />
 </template>
 <script setup>
 import { ref } from 'vue'
 import { useCartStore } from '@/stores/cart'
-import { supabase } from '../../lib/supabase'
+import { supabase } from '@/lib/supabase'
+import BaseModal from '@/components/ui/BaseModal.vue'
 
 const theCart = useCartStore()
 
+// Modal State
+const showModal = ref(false)
+const modalType = ref('success')
+const modalMessage = ref('')
+
+// Form State
 const checkoutForm = ref({
   name: '',
   phone: '',
@@ -227,9 +235,12 @@ const checkoutForm = ref({
   note: '',
 })
 
+// Validation Errors
 const errors = ref({})
 
-// 1️⃣ Submit Order function
+// ===============================
+// Submit Order
+// ===============================
 const submitOrder = async (customer) => {
   try {
     const orderData = {
@@ -241,41 +252,85 @@ const submitOrder = async (customer) => {
       cart_items: theCart.cartItems,
       total_amount: theCart.subTotal,
       status: 'pending',
-      delivery_date: customer.date,
-      delivery_note: customer.note,
+      delivery_date: customer.date || null,
+      delivery_note: customer.note || null,
     }
 
-    const { data, error } = await supabase.from('orders').insert([orderData])
+    const { error } = await supabase.from('orders').insert([orderData])
+
     if (error) throw error
 
-    // Success
-    theCart.cartItems = [] // clear cart
-    theCart.closeCart() // close sidebar
-    alert('Order submitted successfully!')
+    // ✅ Success
+    theCart.cartItems = []
+    // theCart.closeCart()
+
+    modalType.value = 'success'
+    modalMessage.value = 'Order submitted successfully!'
+    showModal.value = true
+
+    // Reset form
+    checkoutForm.value = {
+      name: '',
+      phone: '',
+      email: '',
+      address: '',
+      paymentMethod: '',
+      date: '',
+      note: '',
+    }
   } catch (err) {
     console.error(err)
-    alert('Failed to submit order.')
+
+    modalType.value = 'error'
+    modalMessage.value = 'Failed to submit order. Please try again.'
+    showModal.value = true
   }
 }
 
-// 2️⃣ Validate Form function
+// ===============================
+// Validate Form
+// ===============================
 const validateForm = async () => {
   errors.value = {}
 
-  if (!checkoutForm.value.name.trim()) errors.value.name = 'Name is required'
-  if (!checkoutForm.value.phone.trim()) errors.value.phone = 'Phone number is required'
-  if (!checkoutForm.value.email.trim()) errors.value.email = 'Email is required'
-  if (!checkoutForm.value.address.trim()) errors.value.address = 'Address is required'
-  if (!checkoutForm.value.paymentMethod.trim())
-    errors.value.paymentMethod = 'Payment method is required'
+  // 🔴 Check cart first
+  if (theCart.cartItems.length === 0) {
+    modalType.value = 'error'
+    modalMessage.value = 'Your cart is empty.'
+    showModal.value = true
+    return
+  }
 
-  // If no errors, submit the form
+  // 🔴 Field validation
+  if (!checkoutForm.value.name.trim()) {
+    errors.value.name = 'Name is required'
+  }
+
+  if (!checkoutForm.value.phone.trim()) {
+    errors.value.phone = 'Phone number is required'
+  }
+
+  if (!checkoutForm.value.email.trim()) {
+    errors.value.email = 'Email is required'
+  }
+
+  if (!checkoutForm.value.address.trim()) {
+    errors.value.address = 'Address is required'
+  }
+
+  if (!checkoutForm.value.paymentMethod.trim()) {
+    errors.value.paymentMethod = 'Payment method is required'
+  }
+
+  // ✅ If no errors, submit
   if (Object.keys(errors.value).length === 0) {
     await submitOrder(checkoutForm.value)
   }
 }
 
-// Clear errors when user types
+// ===============================
+// Clear Error When Typing
+// ===============================
 const clearError = (field) => {
   delete errors.value[field]
 }
