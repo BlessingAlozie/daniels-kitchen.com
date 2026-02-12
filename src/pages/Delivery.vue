@@ -213,11 +213,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useCartStore } from '@/stores/cart'
-import { watch } from 'vue'
 import { supabase } from '../../lib/supabase'
 
 const theCart = useCartStore()
-console.log(supabase)
 
 const checkoutForm = ref({
   name: '',
@@ -231,26 +229,53 @@ const checkoutForm = ref({
 
 const errors = ref({})
 
-const validateForm = () => {
-  errors.value = {}
+// 1️⃣ Submit Order function
+const submitOrder = async (customer) => {
+  try {
+    const orderData = {
+      full_name: customer.name,
+      phone: customer.phone,
+      email: customer.email,
+      address: customer.address,
+      payment_method: customer.paymentMethod,
+      cart_items: theCart.cartItems,
+      total_amount: theCart.subTotal,
+      status: 'pending',
+      delivery_date: customer.date,
+      delivery_note: customer.note,
+    }
 
-  if (!checkoutForm.value.name.trim()) {
-    errors.value.name = 'Name is required'
-  }
-  if (!checkoutForm.value.phone.trim()) {
-    errors.value.phone = 'Phone number is required'
-  }
-  if (!checkoutForm.value.email.trim()) {
-    errors.value.email = 'Email number is required'
-  }
-  if (!checkoutForm.value.address.trim()) {
-    errors.value.address = 'Address number is required'
-  }
-  if (!checkoutForm.value.paymentMethod.trim()) {
-    errors.value.paymentMethod = ' Payment is required'
+    const { data, error } = await supabase.from('orders').insert([orderData])
+    if (error) throw error
+
+    // Success
+    theCart.cartItems = [] // clear cart
+    theCart.closeCart() // close sidebar
+    alert('Order submitted successfully!')
+  } catch (err) {
+    console.error(err)
+    alert('Failed to submit order.')
   }
 }
 
+// 2️⃣ Validate Form function
+const validateForm = async () => {
+  errors.value = {}
+
+  if (!checkoutForm.value.name.trim()) errors.value.name = 'Name is required'
+  if (!checkoutForm.value.phone.trim()) errors.value.phone = 'Phone number is required'
+  if (!checkoutForm.value.email.trim()) errors.value.email = 'Email is required'
+  if (!checkoutForm.value.address.trim()) errors.value.address = 'Address is required'
+  if (!checkoutForm.value.paymentMethod.trim())
+    errors.value.paymentMethod = 'Payment method is required'
+
+  // If no errors, submit the form
+  if (Object.keys(errors.value).length === 0) {
+    await submitOrder(checkoutForm.value)
+  }
+}
+
+// Clear errors when user types
 const clearError = (field) => {
   delete errors.value[field]
 }
