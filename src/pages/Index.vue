@@ -1,6 +1,6 @@
 <template>
-  <Hero />
-  <!-- <HeroBlock /> -->
+  <!-- <Hero /> -->
+  <HeroBlock />
   <RiderSection />
   <SpecialMenu />
   <WhychooseUs />
@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-import Hero from '@/blocks/Hero.vue'
-// import HeroBlock from '@/blocks/HeroBlock.vue'
+// import Hero from '@/blocks/Hero.vue'
+import HeroBlock from '@/blocks/HeroBlock.vue'
 import RiderSection from '@/blocks/RiderSection.vue'
 import SpecialMenu from '@/blocks/SpecialMenu.vue'
 import WhychooseUs from '@/blocks/WhychooseUs.vue'
