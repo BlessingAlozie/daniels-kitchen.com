@@ -1,34 +1,35 @@
 <template>
-  <section class="relative w-full min-h-screen overflow-hidden">
-    <!-- Flipped background image -->
-    <div
-      class="absolute inset-0 bg-cover bg-center scale-x-[-1] z-0"
-      :style="{ backgroundImage: `url(${heroImageUrl})` }"
-    ></div>
-
-    <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-black/30 z-10"></div>
-
+  <section
+    class="relative w-full min-h-screen bg-cover bg-right bg-no-repeat"
+    :style="{ backgroundImage: `url(${heroImage})` }"
+  >
+    <div class="bg-black/20 w-full h-full absolute inset-0"></div>
     <!-- Content -->
     <div
-      class="relative z-20 max-w-7xl mx-auto min-h-screen flex flex-col md:flex-row items-center gap-12"
+      class="max-w-7xl mx-auto px-6 z-10 relative min-h-screen flex flex-col justify-center items-start"
     >
-      <div class="max-w-xl">
-        <h1 class="text-4xl md:text-6xl text-white/80 font-bold leading-tight mb-4">
-          Homemade Taste,
-          <span class="text-red-600">Delivered</span> in Minutes
-        </h1>
-
-        <p class="text-base md:text-lg text-white mb-6 max-w-lg">
-          Freshly cooked lunch and dinner from Daniel's Kitchen straight to your home or office.
-        </p>
-
-        <div class="flex gap-4">
-            <button class="bg-red-600 text-white px-10 py-3 rounded-full hover:bg-black transition">
-              Order Now
-            </button>
-        </div>
-      </div>
+      <h1 class="text-white text-5xl md:text-6xl font-bold leading-none max-w-2xl">
+        Homemade Taste, <span class="text-red-500">Delivered</span> in Minutes
+      </h1>
+      <p class="text-white text-lg mt-4 max-w-lg leading-relaxed">
+        Freshly cooked lunch and dinner from Daniel's Kitchen straight to your office or home.
+      </p>
+      <button
+        class="mt-8 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full flex items-center gap-2"
+      >
+        Get Yours Now
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="#ffffff"
+          viewBox="0 0 256 256"
+        >
+          <path
+            d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"
+          ></path>
+        </svg>
+      </button>
     </div>
   </section>
   <!-- food card display -->
@@ -51,9 +52,7 @@
 <script setup>
 import FoodCard from '@/components/FoodCard.vue'
 
-const heroImageUrl =
-  'https://image2url.com/r2/default/images/1769115704541-4cf3041a-5b28-447b-8114-26ac53f333aa.png'
-
+const heroImage = '/images/hero_image.webp'
 const foods = [
   {
     id: 1,
