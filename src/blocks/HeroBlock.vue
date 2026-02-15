@@ -6,7 +6,7 @@
     <div class="bg-black/20 w-full h-full absolute inset-0"></div>
     <!-- Content -->
     <div
-      class="max-w-7xl mx-auto px-6 z-10 relative min-h-screen flex flex-col justify-center items-start"
+      class="max-w-7xl mx-auto px-6 md:px-8 z-10 relative min-h-screen flex flex-col justify-center items-start"
     >
       <h1 class="text-white text-5xl md:text-6xl font-bold leading-none max-w-2xl">
         Homemade Taste, <span class="text-red-500">Delivered</span> in Minutes

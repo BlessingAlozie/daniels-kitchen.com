@@ -28,4 +28,8 @@ watch(
 )
 </script>
 
-<style lang="scss" scoped></style>
+<style  scoped>
+body {
+  background: #000;
+}
+</style>
