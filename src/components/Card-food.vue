@@ -1,45 +1,40 @@
 <template>
-  <div class="h-[350px] shadow-lg flex relative rounded-2xl flex-col">
+  <div class="h-[350px] rounded-xl shadow-lg flex flex-col">
     <!-- Food Image -->
     <div
-      class="h-2/3 bg-cover rounded-xl relative bg-center"
+      class="h-2/3 rounded-t-xl bg-cover bg-center"
       :style="{ backgroundImage: `url(${image})` }"
     ></div>
 
     <!-- Food Info -->
-    <div
-      class="p-4 text-black flex flex-col justify-between absolute rounded-b-2xl rounded-t-3xl bottom-0 left-0 right-0 bg-white flex-1"
-    >
-      <div class="name flex justify-between pb-2">
+    <div class="p-4 text-black flex flex-col justify-between flex-1">
+      <div class="name flex justify-between">
         <h3 class="font-bold text-lg">{{ name }}</h3>
-        <h3 class="total-amount text-[color:var(--color-primary)]">₦{{ totalPrice }}</h3>
+        <h3 class="total-amount text-green-500">₦{{ totalPrice }}</h3>
       </div>
-      <p class="text-sm text-gray-700">
-        Fresh okra simmered in rich palm oil sauce with assorted meat, ...
-      </p>
+
       <!-- Quantity + Add button -->
-      <div class="pt-4 pb-4 flex items-center justify-between text-center">
+      <div class="mt-2 pt-4 pb-6 flex items-center justify-between text-center">
         <div class="quantity flex gap-2 bg-white/20 px-2 py-1 rounded-md">
           <button
-            class="px-2 w-8 h-8 text-bold max-w-30px border-0 bg-[#EEF0EE] rounded text-center cursor-pointer"
+            class="px-2 text-lg w-6 h-8 border border-green-500 rounded py-1 cursor-pointer text-center font-bold"
             @click="decrease"
           >
             -
           </button>
           <span>{{ quantity }}</span>
           <button
-            class="px-2 w-8 h-8 text-bold max-w-30px border-0 bg-[#EEF0EE] rounded text-center cursor-pointer"
+            class="px-2 w-6 h-8 text-bold max-w-30px border border-green-500 rounded py-1 text-center cursor-pointer"
             @click="increase"
           >
             +
           </button>
         </div>
         <button
-          class="cursor-pointer bg-[color:var(--color-primary)] text-white px-6 py-2 text-center flex items-center justify-center hover:bg-[color:var(--primary-hover)] rounded-full transition"
+          class="addBTN cursor-pointer bg-green-500 text-white px-6 py-2 text-center rounded-full hover:bg-red-600 transition"
           @click="addToCart"
         >
-          <PhShoppingCartSimple :size="24" weight="fill" class="mr-2" />
-
+          <i class="fa-solid fa-basket-shopping text-md mr-2"></i>
           Add
         </button>
       </div>
@@ -58,7 +53,6 @@ const props = defineProps({
   name: String,
   price: Number,
   image: String,
-  // description: String,
 })
 
 /* Local quantity state */

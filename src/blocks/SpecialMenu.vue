@@ -4,7 +4,7 @@
       <div class="text-center flex flex-col items-center">
         <h1 class="text-4xl md:text-5xl text-black font-bold leading-tight mb-4">
           Special
-          <span class="text-red-600">Menu</span>
+          <span class="text-[color:var(--color-primary)]">Menu</span>
         </h1>
 
         <p class="text-base text-gray-600 mb-4 max-w-md">
@@ -16,7 +16,7 @@
           <button
             v-for="(category, index) in categories"
             :key="index"
-            class="px-5 py-2 rounded-full border border-green-500 text-black hover:bg-red-600 hover:text-white transition"
+            class="px-5 py-2 rounded-full border border-[color:var(--border)] text-black hover:bg-[color:var(--color-primary)] hover:border-[color:var(--color-primary)] hover:text-white transition"
           >
             {{ category }}
           </button>
@@ -36,7 +36,7 @@
     </section>
     <div class="w-full text-center item-center">
       <button
-        class="bg-red-600 text-white px-10 py-3 rounded-full hover:bg-green-500 border-none outline-none cursor-pointer"
+        class="bg-[color:var(--color-primary)] text-white px-10 py-3 rounded-full hover:bg-[color:var(--primary-hover)] border-none outline-none cursor-pointer"
       >
         View All Products
       </button>

@@ -5,7 +5,7 @@
       <div class="flex-1 text-center lg:text-left">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
           Homemade Taste,<br />
-          <span class="text-red-600">Delivered</span> in<br />
+          <span class="text-[color:var(--color-primary)]">Delivered</span> in<br />
           Minutes
         </h1>
         <p class="mt-6 text-gray-600 text-lg max-w-md mx-auto lg:mx-0">

@@ -3,21 +3,21 @@
     class="relative w-full min-h-screen bg-cover bg-right bg-no-repeat"
     :style="{ backgroundImage: `url(${heroImage})` }"
   >
-    <div class="bg-black/20 w-full h-full absolute inset-0"></div>
+    <div class="bg-black/10 w-full h-full absolute inset-0"></div>
     <!-- Content -->
     <div
-      class="max-w-7xl mx-auto px-6 md:px-8 z-10 relative min-h-screen flex flex-col justify-center items-start"
+      class="max-w-7xl mx-auto px-4 md:px-8 z-10 relative min-h-screen flex flex-col justify-center items-start"
     >
       <h1
         class="text-white font-['Manrope'] text-5xl md:text-6xl font-medium leading-none max-w-2xl"
       >
-        Homemade Taste, <span class="text-red-500">Delivered</span> in Minutes
+        Homemade Taste, <span class="text-[color:var(--color-primary)]">Delivered</span> in Minutes
       </h1>
       <p class="font-['Manrope'] text-white text-lg mt-4 max-w-lg leading-relaxed">
         Freshly cooked lunch and dinner from Daniel's Kitchen straight to your office or home.
       </p>
       <button
-        class="mt-8 bg-red-600 font-['Manrope'] hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full flex items-center gap-2"
+        class="mt-8 bg-[color:var(--color-primary)] font-['Manrope'] hover:bg-[color:var(--primary-hover)] text-white font-bold py-3 px-6 rounded-full flex items-center gap-2"
       >
         Get Yours Now
         <svg

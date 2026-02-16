@@ -4,7 +4,7 @@
       <div class="text-center flex flex-col items-center">
         <h1 class="text-4xl md:text-5xl text-black font-bold leading-tight mb-4">
           Our Regular
-          <span class="text-red-600">Food</span>
+          <span class="text-[color:var(--color-primary)]">Food</span>
         </h1>
 
         <p class="text-base text-gray-600 mb-4 max-w-md">

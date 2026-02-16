@@ -6,7 +6,7 @@
       <div class="text">
         <h1 class="text-4xl md:text-5xl text-black font-bold max-w-lg leading-tight mb-4">
           Order Now and Get Fast
-          <span class="text-red-600">Delivery</span>
+          <span class="text-[color:var(--color-primary)]">Delivery</span>
         </h1>
 
         <p class="text-base text-gray-600 mb-6 max-w-md">

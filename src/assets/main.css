@@ -1,1 +1,7 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+:root {
+   --color-primary: rgb(190 59 37);
+    --primary-hover: rgb(158 47 28);
+    --border: rgb(22, 26, 29);
+}

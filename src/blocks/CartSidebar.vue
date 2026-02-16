@@ -11,7 +11,7 @@
           <h2 class="text-lg font-bold">Your Cart</h2>
           <PhXCircle
             :size="24"
-            class="absolute top-0 right-0 cursor-pointer"
+            class="absolute top-0 right-0 cursor-pointer hover:text-red-500 transition"
             @click="theCart.closeCart()"
           />
         </div>
@@ -73,7 +73,7 @@
           <!-- Checkout button -->
           <button
             @click="handleCheckout"
-            class="mt-6 w-full bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 cursor-pointer transition"
+            class="mt-6 w-full bg-[color:var(--color-primary)] text-white px-4 py-2 rounded hover:bg-[color:var(--primary-hover)] cursor-pointer transition"
           >
             Checkout {{ theCart.totalQuantity }} items
           </button>

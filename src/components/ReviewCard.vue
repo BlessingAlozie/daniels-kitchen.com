@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="max-w-7xl mx-auto text-center px-4">
       <h1 class="text-4xl md:text-6xl text-black font-bold mb-2">
-        Why Choose <span class="text-red-600">Us?</span>
+        Why Choose <span class="text-[color:var(--color-primary)]">Us?</span>
       </h1>
       <p class="text-base md:text-lg text-black max-w-xl mx-auto">
         Because good food should feel like home and arrive right on time.

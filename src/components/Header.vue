@@ -1,8 +1,11 @@
 <template>
   <header class="w-full fixed top-0 z-50 shadow-lg bg-black/40 backdrop-blur-sm">
-    <div class="w-full max-w-7xl mx-auto px-4 md:px-[2rem] py-4 flex items-center justify-between">
+    <div class="w-full max-w-7xl mx-auto px-4 md:px-[1rem] py-4 flex items-center justify-between">
       <!-- Logo -->
-      <router-link to="/" class="font-['Knewave'] tracking-tight text-2xl font-bold text-red-600">
+      <router-link
+        to="/"
+        class="font-['Knewave'] tracking-tight text-2xl font-bold text-[color:var(--color-primary)]"
+      >
         Daniel's Kitchen
       </router-link>
 
@@ -13,7 +16,11 @@
             <router-link :to="{ name: link.routeName }" v-slot="{ isActive }">
               <span
                 class="text-md font-['Manrope'] transition-colors duration-200"
-                :class="isActive ? 'text-red-600 font-bold' : 'text-white hover:text-red-600'"
+                :class="
+                  isActive
+                    ? 'text-[color:var(--color-primary)] font-bold'
+                    : 'text-white hover:text-[color:var(--color-primary)]'
+                "
               >
                 {{ link.name }}
               </span>
@@ -26,14 +33,14 @@
       <div class="flex items-center gap-4 relative">
         <!-- Cart -->
         <div
-          class="relative cursor-pointer flex items-center bg-white/10 px-4 py-2 rounded-full gap-1"
+          class="relative cursor-pointer flex items-center bg-white/10 px-4 py-2 rounded-full gap-2"
           @click="cart.toggleCart()"
         >
           <PhShoppingCartSimple :size="24" weight="fill" class="text-2xl text-white" />
           <span class="text-white font-['Manrope']">
             <span
               v-if="cart.totalQuantity > 0"
-              class="absolute -top-0 bg-red-600 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center font-bold"
+              class="absolute -top-0 bg-[color:var(--color-primary)] text-white rounded-full w-5 h-5 text-xs flex items-center justify-center font-bold"
             >
               {{ cart.totalQuantity }}
             </span>
@@ -44,7 +51,7 @@
         <!-- Order Button -->
         <button
           @click="$router.push({ name: 'Menu' })"
-          class="hidden md:flex relative cursor-pointer gap-1 items-center text-lg bg-red-600 text-white px-4 py-2 rounded-full hover:bg-green-500 transition"
+          class="hidden md:flex relative cursor-pointer gap-2 items-center text-lg bg-[color:var(--color-primary)] text-white px-4 py-2 rounded-full hover:bg-[color:var(--primary-hover)] transition"
         >
           <PhHamburger :size="24" weight="fill" />
           Order Now
@@ -59,12 +66,12 @@
             :class="menuOpen ? 'rotate-45 translate-y-2' : ''"
           ></span>
           <span
-            class="block w-8 h-1 bg-red-600 transition-opacity"
+            class="block w-8 h-1 bg-[color:var(--color-primary)] transition-opacity"
             :class="menuOpen ? 'opacity-0' : ''"
           ></span>
           <span
             class="block w-8 h-1 bg-white transition-transform"
-            :class="menuOpen ? '-rotate-45 -translate-y-2 bg-red-600' : ''"
+            :class="menuOpen ? '-rotate-45 -translate-y-2 bg-[color:var(--color-primary)]' : ''"
           ></span>
         </button>
       </div>
@@ -80,7 +87,7 @@
           <li v-for="link in menuLinks" :key="link.name">
             <router-link
               :to="{ name: link.routeName }"
-              class="cursor-pointer text-lg text-white hover:text-red-600 transition-colors duration-200"
+              class="cursor-pointer text-lg text-white hover:text-[color:var(--color-primary)] transition-colors duration-200"
               exact
               @click="menuOpen = false"
             >

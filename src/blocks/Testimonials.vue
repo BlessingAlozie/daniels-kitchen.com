@@ -3,10 +3,12 @@
     <!-- Header -->
     <div class="max-w-7xl mx-auto text-center px-4">
       <h1 class="text-4xl md:text-5xl text-black font-bold mb-4">
-        Why Choose <span class="text-red-600">Us?</span>
+        What Our Customers Say
+        <span class="text-[color:var(--color-primary)]">Say</span>
       </h1>
       <p class="text-base text-gray-600 max-w-xl mx-auto">
-        Because good food should feel like home and arrive right on time.
+        Real people who have experienced our delicious meals and prompt delivery share their
+        thoughts.
       </p>
     </div>
 
@@ -18,7 +20,11 @@
             <li v-for="(review, index) in reviews" :key="index" class="splide__slide px-3">
               <div class="relative shadow-lg rounded-lg p-4 bg-white text-left h-full">
                 <!-- Quote -->
-                <svg class="w-10 h-10 mb-2 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  class="w-10 h-10 mb-2 text-[color:var(--color-primary)]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
                   />
@@ -158,16 +164,16 @@ onBeforeUnmount(() => {
 }
 
 .splide__pagination__page.is-active {
-  background: #dc2626;
+  background: #be3b25;
 }
 /* Arrow buttons */
 .splide__arrow {
-  background: #22c55e;
+  background: #be3b25;
   opacity: 1;
 }
 
 .splide__arrow:hover {
-  background: #b91c1c;
+  background: #9e2f1c;
 }
 
 /* Arrow icon (the SVG inside) */

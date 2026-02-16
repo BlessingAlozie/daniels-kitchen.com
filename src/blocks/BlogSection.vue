@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="max-w-7xl mx-auto text-center px-4 mb-12">
       <h1 class="text-4xl md:text-5xl text-black font-bold mb-4">
-        From Our <span class="text-red-600">Blog</span>
+        From Our <span class="text-[color:var(--color-primary)]">Blog</span>
       </h1>
       <p class="text-base text-gray-600 max-w-xl mx-auto">
         Insights on nutrition, healthy eating, and food choices for a better lifestyle.
@@ -58,7 +58,7 @@
             <!-- Read More -->
             <a
               href="#"
-              class="inline-flex items-center gap-1 text-red-600 font-medium text-sm hover:text-red-700 transition-colors"
+              class="inline-flex items-center gap-1 text-[color:var(--color-primary)] font-medium text-sm hover:text-red-700 transition-colors"
             >
               Read More
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

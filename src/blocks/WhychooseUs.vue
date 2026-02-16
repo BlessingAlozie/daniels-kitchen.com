@@ -4,7 +4,7 @@
       <!-- Header -->
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-5xl font-bold text-black mb-4">
-          Why Choose <span class="text-red-600">Us ?</span>
+          Why Choose <span class="text-[color:var(--color-primary)]">Us ?</span>
         </h2>
         <p class="text-gray-600">
           Because good food should feel like home and arrive right on time.
