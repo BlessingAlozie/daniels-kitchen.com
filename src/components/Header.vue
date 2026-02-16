@@ -2,7 +2,7 @@
   <header class="w-full fixed top-0 z-50 shadow-lg bg-black/40 backdrop-blur-sm">
     <div class="w-full max-w-7xl mx-auto px-4 md:px-[2rem] py-4 flex items-center justify-between">
       <!-- Logo -->
-      <router-link to="/" class="text-2xl font-bold italic text-red-600">
+      <router-link to="/" class="font-['Knewave'] tracking-tight text-2xl font-bold text-red-600">
         Daniel's Kitchen
       </router-link>
 
@@ -12,7 +12,7 @@
           <li v-for="link in menuLinks" :key="link.name">
             <router-link :to="{ name: link.routeName }" v-slot="{ isActive }">
               <span
-                class="text-lg transition-colors duration-200"
+                class="text-md font-['Manrope'] transition-colors duration-200"
                 :class="isActive ? 'text-red-600 font-bold' : 'text-white hover:text-red-600'"
               >
                 {{ link.name }}
@@ -25,24 +25,30 @@
       <!-- Actions + Hamburger -->
       <div class="flex items-center gap-4 relative">
         <!-- Cart -->
-        <div class="relative cursor-pointer flex items-center gap-1">
-          <i class="fa-solid fa-basket-shopping text-2xl text-white" @click="cart.toggleCart()"></i>
-          <span
-            v-if="cart.totalQuantity > 0"
-            class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center font-bold"
+        <div
+          class="relative cursor-pointer flex items-center bg-white/10 px-4 py-2 rounded-full gap-1"
+          @click="cart.toggleCart()"
+        >
+          <PhShoppingCartSimple :size="24" weight="fill" class="text-2xl text-white" />
+          <span class="text-white font-['Manrope']">
+            <span
+              v-if="cart.totalQuantity > 0"
+              class="absolute -top-0 bg-red-600 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center font-bold"
+            >
+              {{ cart.totalQuantity }}
+            </span>
+            Cart</span
           >
-            {{ cart.totalQuantity }}
-          </span>
         </div>
 
         <!-- Order Button -->
         <button
           @click="$router.push({ name: 'Menu' })"
-          class="hidden md:block text-lg bg-red-600 text-white px-4 py-2 rounded-full hover:bg-green-500 transition"
+          class="hidden md:flex relative cursor-pointer gap-1 items-center text-lg bg-red-600 text-white px-4 py-2 rounded-full hover:bg-green-500 transition"
         >
+          <PhHamburger :size="24" weight="fill" />
           Order Now
         </button>
-
         <!-- Mobile Hamburger -->
         <button
           @click="menuOpen = !menuOpen"

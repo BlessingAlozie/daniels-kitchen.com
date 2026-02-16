@@ -8,14 +8,16 @@
     <div
       class="max-w-7xl mx-auto px-6 md:px-8 z-10 relative min-h-screen flex flex-col justify-center items-start"
     >
-      <h1 class="text-white text-5xl md:text-6xl font-bold leading-none max-w-2xl">
+      <h1
+        class="text-white font-['Manrope'] text-5xl md:text-6xl font-medium leading-none max-w-2xl"
+      >
         Homemade Taste, <span class="text-red-500">Delivered</span> in Minutes
       </h1>
-      <p class="text-white text-lg mt-4 max-w-lg leading-relaxed">
+      <p class="font-['Manrope'] text-white text-lg mt-4 max-w-lg leading-relaxed">
         Freshly cooked lunch and dinner from Daniel's Kitchen straight to your office or home.
       </p>
       <button
-        class="mt-8 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full flex items-center gap-2"
+        class="mt-8 bg-red-600 font-['Manrope'] hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full flex items-center gap-2"
       >
         Get Yours Now
         <svg
