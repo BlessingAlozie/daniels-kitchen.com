@@ -18,8 +18,8 @@
         Fresh okra simmered in rich palm oil sauce with assorted meat, ...
       </p>
       <!-- Quantity + Add button -->
-      <div class="pt-4 pb-4 flex items-center justify-between text-center">
-        <div class="quantity flex gap-2 bg-white/20 px-2 py-1 rounded-md">
+      <div class="pt-4 pb-4 flex items-center justify-between">
+        <div class="quantity flex gap-2 bg-white/20 py-1 rounded-md">
           <button
             class="px-2 w-8 h-8 text-bold max-w-30px border-0 bg-[#EEF0EE] rounded text-center cursor-pointer"
             @click="decrease"
