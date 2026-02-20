@@ -29,7 +29,6 @@
 <script setup>
 import FoodCard from '@/components/FoodCard.vue'
 
-const categories = ['All Food', 'Soup', 'Rice', 'Pastries', 'Pizza', 'Fresh Juice', 'Salads']
 const foods = [
   {
     id: 1,
