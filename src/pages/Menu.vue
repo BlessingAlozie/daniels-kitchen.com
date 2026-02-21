@@ -112,11 +112,10 @@
         v-for="page in totalPages"
         :key="page"
         @click="currentPage = page"
-        :class="{
-          'bg-[var(--color-primary)] text-white': currentPage === page,
-          'bg-gray-200': currentPage !== page,
-        }"
-        class="px-3 py-1 rounded"
+        :class="[
+          'px-3 py-1 rounded',
+          currentPage === page ? 'bg-[var(--color-primary)] text-white' : 'bg-gray-300',
+        ]"
       >
         {{ page }}
       </button>
@@ -137,19 +136,21 @@ import { ref, computed, onMounted } from 'vue'
 import FoodCard from '@/components/FoodCard.vue'
 import Splide from '@splidejs/splide'
 
-const active_title = ref('All')
+// States
+const active_title = ref('All Foods')
 const searchQuery = ref('')
 const itemPerpage = ref(10)
 const currentPage = ref(1)
 
 const setActiveTitle = (title) => {
   active_title.value = title
-  currentPage.value = 1 // Reset to first page when category changes
+  // Reset to first page when category changes
 }
 
 const filteredFoods = computed(() => {
   return foods.filter((food) => {
-    const matchesCategory = active_title.value === 'All' || food.category === active_title.value
+    const matchesCategory =
+      active_title.value === 'All Foods' || food.category === active_title.value
     const matchesSearch = food.name.toLowerCase().includes(searchQuery.value.toLowerCase())
     return matchesCategory && matchesSearch
   })
@@ -162,7 +163,7 @@ const filteredFoods = computed(() => {
 // })
 
 const categories = [
-  { name: 'All', image: '/images/all-food.png' },
+  { name: 'All Foods', image: '/images/all-food.png' },
   { name: 'Soups', image: '/images/soups.jpeg' },
   { name: 'Rice', image: '/images/rice.jpeg' },
   { name: 'Pastries', image: '/images/pastries.jpeg' },
