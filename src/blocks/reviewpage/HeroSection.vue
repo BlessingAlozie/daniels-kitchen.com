@@ -7,7 +7,7 @@
       class="max-w-7xl mx-auto px-4 md:px-6 z-10 min-h-screen flex flex-col justify-center items-start"
     >
       <h1
-        class="text-white font-['Manrope'] text-4xl md:text-6xl font-medium leading-none max-w-2xl"
+        class="text-white font-['Manrope'] text-4xl md:text-5xl font-medium leading-none max-w-2xl"
       >
         What Our Customers Say About
         <span class="text-[var(--color-primary)]">Daniel’s Kitchen</span>
