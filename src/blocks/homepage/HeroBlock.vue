@@ -6,7 +6,7 @@
     <div class="bg-black/10 w-full h-full absolute inset-0"></div>
     <!-- Content -->
     <div
-      class="max-w-7xl mx-auto px-4 md:px-8 z-10 relative min-h-screen flex flex-col justify-center items-start"
+      class="max-w-7xl mx-auto px-4 md:px-6 z-10 relative min-h-screen flex flex-col justify-center items-start"
     >
       <h1
         class="text-white font-['Manrope'] text-5xl md:text-6xl font-medium leading-none max-w-2xl"
