@@ -56,11 +56,6 @@
               <circle cx="32" cy="32" r="24" />
               <!-- Clock hands -->
               <path d="M32 16v16l10 6" stroke-linecap="round" stroke-linejoin="round" />
-              <!-- Small dots around -->
-              <circle cx="32" cy="10" r="2" fill="currentColor" />
-              <circle cx="54" cy="32" r="2" fill="currentColor" />
-              <circle cx="32" cy="54" r="2" fill="currentColor" />
-              <circle cx="10" cy="32" r="2" fill="currentColor" />
             </svg>
           </div>
           <h3 class="text-lg font-bold text-black mb-3">Punctual Office Delivery</h3>
@@ -82,7 +77,7 @@
                 stroke-linejoin="round"
               />
               <!-- Inner circle -->
-              <circle cx="32" cy="24" r="8" stroke="#dc2626" stroke-linecap="round" />
+              <circle cx="32" cy="24" r="8" stroke="#16a34a" stroke-linecap="round" />
             </svg>
           </div>
           <h3 class="text-lg font-bold text-black mb-3">Transparent Tracking</h3>

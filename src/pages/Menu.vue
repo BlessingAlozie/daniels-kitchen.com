@@ -137,7 +137,7 @@ import FoodCard from '@/components/FoodCard.vue'
 import Splide from '@splidejs/splide'
 
 // States
-const active_title = ref('All Foods')
+const active_title = ref('All')
 const searchQuery = ref('')
 const itemPerpage = ref(10)
 const currentPage = ref(1)
@@ -149,8 +149,7 @@ const setActiveTitle = (title) => {
 
 const filteredFoods = computed(() => {
   return foods.filter((food) => {
-    const matchesCategory =
-      active_title.value === 'All Foods' || food.category === active_title.value
+    const matchesCategory = active_title.value === 'All' || food.category === active_title.value
     const matchesSearch = food.name.toLowerCase().includes(searchQuery.value.toLowerCase())
     return matchesCategory && matchesSearch
   })
@@ -163,7 +162,7 @@ const filteredFoods = computed(() => {
 // })
 
 const categories = [
-  { name: 'All Foods', image: '/images/all-food.png' },
+  { name: 'All', image: '/images/all-food.png' },
   { name: 'Soups', image: '/images/soups.jpeg' },
   { name: 'Rice', image: '/images/rice.jpeg' },
   { name: 'Pastries', image: '/images/pastries.jpeg' },
@@ -298,12 +297,17 @@ onMounted(() => {
     perPage: 10, // number of slides per view
     gap: '1rem', // spacing between slides
     autoplay: true, // enable automatic sliding
-    interval: 2500, // 2.5 seconds per slide
+    interval: 5000, // 2.5 seconds per slide
+    // speed: 1200,
     arrows: false, // show arrows
     pagination: true, // show dots
     breakpoints: {
-      640: { perPage: 5 }, // show 2 slides on small screens
+      640: { perPage: 4 }, // show 2 slides on small screens
       768: { perPage: 6 }, // show 3 slides on medium screens
+      autoScroll: {
+        speed: 1,
+        pauseOnHover: true,
+      },
     },
   }).mount()
 })
