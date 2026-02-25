@@ -1,6 +1,6 @@
 <template>
   <section class="max-w-7xl mx-auto">
-    <div class="relative shadow-lg rounded-lg p-6 w-100 bg-white text-left">
+    <div class="relative shadow-lg rounded-lg p-6 bg-white text-left">
       <h3 class="font-[Manrope] text-xl font-bold">{{ name }}</h3>
       <div class="pt-2 flex">
         <PhStar
