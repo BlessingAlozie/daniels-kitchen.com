@@ -293,14 +293,14 @@ const splideRef = ref(null)
 
 onMounted(() => {
   new Splide(splideRef.value, {
-    type: 'loop', // loop continuously
-    perPage: 10, // number of slides per view
-    gap: '1rem', // spacing between slides
-    autoplay: true, // enable automatic sliding
-    interval: 5000, // 2.5 seconds per slide
+    type: 'loop',
+    perPage: 10,
+    gap: '1rem',
+    autoplay: true,
+    interval: 5000,
     // speed: 1200,
-    arrows: false, // show arrows
-    pagination: true, // show dots
+    arrows: false,
+    pagination: true,
     breakpoints: {
       640: { perPage: 4 }, // show 2 slides on small screens
       768: { perPage: 6 }, // show 3 slides on medium screens
