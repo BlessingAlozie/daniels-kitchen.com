@@ -4,6 +4,7 @@ import Menu from '../pages/Menu.vue'
 import Reviews from '../pages/Reviews.vue'
 import Blog from '../pages/Blog.vue'
 import Delivery from '@/pages/Delivery.vue'
+import FoodDetail from '@/components/FoodDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +19,11 @@ const router = createRouter({
       path: '/menu',
       name: 'Menu',
       component: Menu
+    },
+    {
+      path: '/menu/:slug',
+      name: 'FoodDetail',
+      component: FoodDetail
     },
     {
       path: '/reviews',

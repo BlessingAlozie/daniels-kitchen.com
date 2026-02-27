@@ -53,6 +53,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useCartStore } from '@/stores/cart'
+import router from '@/router'
 
 const cart = useCartStore()
 
@@ -91,6 +92,10 @@ const addToCart = () => {
 
   // reset local quantity to 1 after adding
   quantity.value = 1
+}
+
+const goToDetail = () => {
+  router.push(`/menu/${props.food.id}`)
 }
 </script>
 
