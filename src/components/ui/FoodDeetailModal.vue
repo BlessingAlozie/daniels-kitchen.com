@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <section class="w-full">
     <div class=""></div>
   </section>
@@ -8,4 +8,4 @@
 </script>
 
 <style lang="scss" scoped>
-</style>
+</style> -->

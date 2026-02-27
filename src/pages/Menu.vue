@@ -83,13 +83,7 @@
       <div
         class="max-w-7xl mx-auto py-10 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-2 md:mt-6"
       >
-        <FoodCard
-          v-for="food in paginatedFoods"
-          :key="food.id"
-          :name="food.name"
-          :price="food.price"
-          :image="food.image"
-        />
+        <FoodCard v-for="food in paginatedFoods" :key="food.id" :food="food" />
       </div>
     </section>
 
@@ -132,9 +126,10 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import FoodCard from '@/components/FoodCard.vue'
 import Splide from '@splidejs/splide'
+import { foods } from '@/data/foods'
 
 // States
 const active_title = ref('All')
@@ -145,7 +140,12 @@ const currentPage = ref(1)
 const setActiveTitle = (title) => {
   active_title.value = title
   // Reset to first page when category changes
+  currentPage.value = 1
 }
+
+watch(searchQuery, () => {
+  currentPage.value = 1
+})
 
 const filteredFoods = computed(() => {
   return foods.filter((food) => {
@@ -154,12 +154,6 @@ const filteredFoods = computed(() => {
     return matchesCategory && matchesSearch
   })
 })
-//
-
-// Only filter by category if it's not "All Food"
-// const filteredFoods = computed(() => {
-//   return foods.filter((item) => item.name.toLowerCase().includes(searchQuery.value.toLowerCase()))
-// })
 
 const categories = [
   { name: 'All', image: '/images/all-food.png' },
@@ -172,121 +166,6 @@ const categories = [
   { name: 'Drinks', image: '/images/drinks.jpeg' },
   { name: 'Native', image: '/images/native.jpeg' },
   { name: 'Proteins', image: '/images/proteins.jpeg' },
-]
-
-const foods = [
-  {
-    id: 1,
-    name: 'Jollof Rice',
-    price: 5000,
-    category: 'Rice',
-    image:
-      'https://image2url.com/r2/default/images/1769120124455-c94ede40-e3be-43b6-afa2-5d8099c4136e.jpeg',
-  },
-  {
-    id: 2,
-    name: 'Fruit Salad',
-    price: 4500,
-    category: 'Salads',
-    image:
-      'https://image2url.com/r2/default/images/1769156794327-c6425b2f-763b-4058-98ff-c86b23e60610.jpg',
-  },
-  {
-    id: 3,
-    name: 'Bole and Fish',
-    price: 7000,
-    category: 'Native',
-    image:
-      'https://image2url.com/r2/default/images/1769155837445-cc8c64a4-f61b-40af-9a94-c912ba72118e.jpg',
-  },
-  {
-    id: 4,
-    name: 'Jollof Rice',
-    price: 4500,
-    category: 'Rice',
-    image:
-      'https://image2url.com/r2/default/images/1769155907234-e4dd47b7-4afd-4469-a852-e4d14ce7e211.jpg',
-  },
-  {
-    id: 5,
-    name: 'Bole and Fish',
-    price: 7000,
-    category: 'Native',
-    image:
-      'https://image2url.com/r2/default/images/1769155837445-cc8c64a4-f61b-40af-9a94-c912ba72118e.jpg',
-  },
-  {
-    id: 6,
-    name: 'Jollof Rice',
-    price: 5000,
-    category: 'Rice',
-    image:
-      'https://image2url.com/r2/default/images/1769120124455-c94ede40-e3be-43b6-afa2-5d8099c4136e.jpeg',
-  },
-  {
-    id: 7,
-    name: 'Jollof Rice',
-    price: 4500,
-    category: 'Rice',
-    image:
-      'https://image2url.com/r2/default/images/1769155907234-e4dd47b7-4afd-4469-a852-e4d14ce7e211.jpg',
-  },
-  {
-    id: 8,
-    name: 'Fruit Salad',
-    price: 4500,
-    category: 'Salads',
-    image:
-      'https://image2url.com/r2/default/images/1769156794327-c6425b2f-763b-4058-98ff-c86b23e60610.jpg',
-  },
-  {
-    id: 9,
-    name: 'Jollof Rice',
-    price: 5000,
-    category: 'Rice',
-    image:
-      'https://image2url.com/r2/default/images/1769120124455-c94ede40-e3be-43b6-afa2-5d8099c4136e.jpeg',
-  },
-  {
-    id: 10,
-    name: 'Fruit Salad',
-    price: 4500,
-    category: 'Salads',
-    image:
-      'https://image2url.com/r2/default/images/1769156794327-c6425b2f-763b-4058-98ff-c86b23e60610.jpg',
-  },
-  {
-    id: 11,
-    name: 'Bole and Fish',
-    price: 7000,
-    category: 'Native',
-    image:
-      'https://image2url.com/r2/default/images/1769155837445-cc8c64a4-f61b-40af-9a94-c912ba72118e.jpg',
-  },
-  {
-    id: 12,
-    name: 'Jollof Rice',
-    price: 4500,
-    category: 'Rice',
-    image:
-      'https://image2url.com/r2/default/images/1769155907234-e4dd47b7-4afd-4469-a852-e4d14ce7e211.jpg',
-  },
-  {
-    id: 13,
-    name: 'cake',
-    price: 20000,
-    category: 'Cakes',
-    image:
-      'https://image2url.com/r2/default/images/1769805287001-37933905-3db8-47ec-abdf-c7ec54465a2b.jpeg',
-  },
-  {
-    id: 14,
-    name: 'Milkshake',
-    price: 8500,
-    category: 'Drinks',
-    image:
-      'https://image2url.com/r2/default/images/1769805451378-1411fc97-cb3c-4f13-b7ce-b0fb59f517b5.jpeg',
-  },
 ]
 
 const splideRef = ref(null)

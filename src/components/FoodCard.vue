@@ -1,9 +1,12 @@
 <template>
-  <div class="h-[350px] shadow-lg flex relative rounded-2xl flex-col">
+  <div
+    class="h-[350px] shadow-lg flex relative rounded-2xl flex-col cursor-pointer"
+    @click="goToDetail"
+  >
     <!-- Food Image -->
     <div
       class="h-2/3 bg-cover rounded-xl relative bg-center"
-      :style="{ backgroundImage: `url(${image})` }"
+      :style="{ backgroundImage: `url(${food.image})` }"
     ></div>
 
     <!-- Food Info -->
@@ -11,11 +14,11 @@
       class="p-4 text-black flex flex-col justify-between absolute rounded-b-2xl rounded-t-3xl bottom-0 left-0 right-0 bg-white flex-1"
     >
       <div class="name flex justify-between pb-2">
-        <h3 class="font-bold text-lg">{{ name }}</h3>
+        <h3 class="font-bold text-lg">{{ food.name }}</h3>
         <h3 class="total-amount text-[color:var(--color-primary)]">₦{{ totalPrice }}</h3>
       </div>
       <p class="text-sm text-gray-700">
-        Fresh okra simmered in rich palm oil sauce with assorted meat, ...
+        {{ food.description }}
       </p>
       <!-- Quantity + Add button -->
       <div class="pt-4 pb-4 flex items-center justify-between">
@@ -55,10 +58,7 @@ const cart = useCartStore()
 
 /* Props passed to the card */
 const props = defineProps({
-  name: String,
-  price: Number,
-  image: String,
-  // description: String,
+  food: Object,
 })
 
 /* Local quantity state */
@@ -76,16 +76,16 @@ const decrease = () => {
 
 /* Compute total price for display */
 const totalPrice = computed(() => {
-  return (props.price * quantity.value).toLocaleString()
+  return (props.food.price * quantity.value).toLocaleString()
 })
 
 /* Add item to cart */
 const addToCart = () => {
   cart.addFoodToCart({
-    id: props.name,
-    name: props.name,
-    price: props.price,
-    image: props.image,
+    id: props.food.name,
+    name: props.food.name,
+    price: props.food.price,
+    image: props.food.image,
     quantity: quantity.value,
   })
 
