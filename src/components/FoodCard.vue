@@ -15,7 +15,7 @@
         <h3 class="font-bold text-lg">{{ food.name }}</h3>
         <h3 class="total-amount text-[color:var(--color-primary)]">₦{{ totalPrice }}</h3>
       </div>
-      <p class="text-sm text-gray-700">
+      <p class="text-sm text-gray-700 trunc">
         {{ food.description }}
       </p>
       <!-- Quantity + Add button -->
@@ -105,5 +105,13 @@ const goToDetail = () => {
   align-content: center;
   align-items: center;
   font-weight: 600;
+}
+
+.trunc {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 </style>
