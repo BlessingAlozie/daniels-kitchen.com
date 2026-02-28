@@ -30,9 +30,9 @@ export const useCartStore = defineStore('cart', {
       // check if food already exist
       const existing = this.cartItems.find(item => item.id === food.id)
       if (existing) {
-        existing.quantity++
+        existing.quantity += Number(food.quantity)
       } else {
-        this.cartItems.push({ ...food, quantity: 1 })
+        this.cartItems.push({ ...food })
       }
 
       this.saveCartToLocalStorage()

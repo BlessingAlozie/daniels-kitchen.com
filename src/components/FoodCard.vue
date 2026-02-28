@@ -1,11 +1,9 @@
 <template>
-  <div
-    class="h-[350px] shadow-lg flex relative rounded-2xl flex-col cursor-pointer"
-    @click="goToDetail"
-  >
+  <div class="h-[350px] shadow-lg flex relative rounded-2xl flex-col">
     <!-- Food Image -->
     <div
-      class="h-2/3 bg-cover rounded-xl relative bg-center"
+      @click="goToDetail"
+      class="h-2/3 bg-cover rounded-xl relative bg-center cursor-pointer"
       :style="{ backgroundImage: `url(${food.image})` }"
     ></div>
 
