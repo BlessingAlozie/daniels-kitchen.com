@@ -128,7 +128,7 @@ const relatedFood = computed(() => {
     .filter((item) => item.category === food.value.category && item.id !== food.value.id)
     .slice(0, 4)
 
-  if (sameCategory.length > 0) return sameCategory
+  if (sameCategory.length > 1) return sameCategory
 
   return foods.filter((item) => item.id !== food.value.id).slice(0, 4)
 })

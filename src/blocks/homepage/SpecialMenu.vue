@@ -12,7 +12,7 @@
         </p>
 
         <!-- Categories -->
-        <div class="flex flex-wrap gap-4 justify-center mt-2">
+        <!-- <div class="flex flex-wrap gap-4 justify-center mt-2">
           <button
             @click="active_food = category"
             v-for="category in categories"
@@ -21,21 +21,15 @@
           >
             {{ category }}
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
     <section
-      class="max-w-7xl mx-auto py-10 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
     >
-      <FoodCard
-        v-for="food in filterByCategory"
-        :key="id"
-        :name="food.name"
-        :price="food.price"
-        :image="food.image"
-      />
+      <FoodCard v-for="food in SpecialFood" :key="food.id" :food="food" />
     </section>
-    <div class="w-full flex justify-center items-center">
+    <div class="w-full flex justify-center items-center mt-15">
       <button
         @click="goToMenu"
         class="bg-[color:var(--color-primary)] flex text-white px-8 gap-3 py-3 rounded-full hover:bg-[color:var(--primary-hover)] border-none outline-none cursor-pointer"
@@ -49,86 +43,27 @@
 
 <script setup>
 import FoodCard from '@/components/FoodCard.vue'
+import { foods } from '@/data/foods'
 import router from '@/router'
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 
-const active_food = ref('All Food')
-const categories = ['All Food', 'Rice', 'Pastries', 'Chips', 'Salads']
+// const active_food = ref('All Food')
+// const categories = ['All Food', 'Rice', 'Pastries', 'Chips', 'Salads']
 
-const filterByCategory = computed(() => {
+// const filterByCategory = computed(() => {
+//   return foods.filter((item) => {
+//     const matchCategory = active_food.value === 'All Food' || item.categories === active_food.value
+//     return matchCategory
+//   })
+// })
+
+const SpecialFood = computed(() => {
   return foods.filter((item) => {
-    const matchCategory = active_food.value === 'All Food' || item.categories === active_food.value
-    return matchCategory
+    return item.type === 'special'
   })
 })
 
 const goToMenu = () => {
   router.push({ name: 'Menu' })
 }
-
-const foods = [
-  {
-    id: 1,
-    name: 'Chicken & Chips',
-    price: 5000,
-    categories: 'Chips',
-    image:
-      'https://image2url.com/r2/default/images/1769120124455-c94ede40-e3be-43b6-afa2-5d8099c4136e.jpeg',
-  },
-  {
-    id: 2,
-    name: 'Fruit Salad',
-    price: 4500,
-    categories: 'Salads',
-    image:
-      'https://image2url.com/r2/default/images/1769156794327-c6425b2f-763b-4058-98ff-c86b23e60610.jpg',
-  },
-  {
-    id: 3,
-    name: 'Love donut',
-    price: 1500,
-    categories: 'Pastries',
-    image: '/images/cake-donut.jpeg',
-  },
-
-  {
-    id: 4,
-    name: 'Redvelvet Cake',
-    price: 4500,
-    categories: 'Pastries',
-    image: '/images/red-velvet-cake.jpeg',
-  },
-  {
-    id: 5,
-    name: 'Bole and Fish',
-    price: 7000,
-    categories: 'Native',
-    image:
-      'https://image2url.com/r2/default/images/1769155837445-cc8c64a4-f61b-40af-9a94-c912ba72118e.jpg',
-  },
-
-  {
-    id: 10,
-    name: 'Crouisant',
-    price: 3500,
-    categories: 'Pastries',
-    image: '/images/crouisant.jpeg',
-  },
-  {
-    id: 11,
-    name: 'Jollof Rice',
-    price: 4500,
-    categories: 'Rice',
-    image:
-      'https://image2url.com/r2/default/images/1769155907234-e4dd47b7-4afd-4469-a852-e4d14ce7e211.jpg',
-  },
-  {
-    id: 12,
-    name: 'Fruit Salad',
-    price: 4500,
-    categories: 'Salads',
-    image:
-      'https://image2url.com/r2/default/images/1769156794327-c6425b2f-763b-4058-98ff-c86b23e60610.jpg',
-  },
-]
 </script>

@@ -134,7 +134,7 @@ import { foods } from '@/data/foods'
 // States
 const active_title = ref('All')
 const searchQuery = ref('')
-const itemPerpage = ref(10)
+const itemPerpage = ref(12)
 const currentPage = ref(1)
 
 const setActiveTitle = (title) => {
@@ -157,15 +157,15 @@ const filteredFoods = computed(() => {
 
 const categories = [
   { name: 'All', image: '/images/all-food.png' },
-  { name: 'Soups', image: '/images/soups.jpeg' },
-  { name: 'Rice', image: '/images/rice.jpeg' },
+  { name: 'Soups', image: '/images/vegetable-soup.jpeg' },
+  { name: 'Rice', image: '/images/beef-fried-rice.jpeg' },
   { name: 'Pastries', image: '/images/pastries.jpeg' },
   { name: 'Breakfast', image: '/images/breakfast.jpeg' },
   { name: 'Cakes', image: '/images/cake.jpeg' },
   { name: 'Salads', image: '/images/salads.jpeg' },
-  { name: 'Drinks', image: '/images/drinks.jpeg' },
+  { name: 'Drinks', image: '/images/homemade-drinks.jpeg' },
   { name: 'Native', image: '/images/native.jpeg' },
-  { name: 'Proteins', image: '/images/proteins.jpeg' },
+  { name: 'Proteins', image: '/images/cripsy-chicken.jpeg' },
 ]
 
 const splideRef = ref(null)

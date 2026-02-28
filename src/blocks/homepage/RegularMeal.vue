@@ -1,8 +1,8 @@
 <template>
-  <section class="w-full min-h-screen">
-    <div class="max-w-7xl mx-auto py-10 px-4">
+  <section class="w-full py-20">
+    <div class="max-w-7xl mx-auto px-4 bg-red-40">
       <div class="text-center flex flex-col items-center">
-        <h1 class="text-4xl md:text-5xl text-black font-bold leading-tight mb-4">
+        <h1 class="text-4xl md:text-5xl text-black font-bold leading-tight mb-2">
           Our Regular
           <span class="text-[color:var(--color-primary)]">Food</span>
         </h1>
@@ -13,120 +13,21 @@
       </div>
     </div>
     <section
-      class="max-w-7xl mx-auto py-10 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      class="max-w-7xl mx-auto pt-6 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
     >
-      <FoodCard
-        v-for="food in foods"
-        :key="id"
-        :name="food.name"
-        :price="food.price"
-        :image="food.image"
-      />
+      <FoodCard v-for="food in regularFoods" :key="food.id" :food="food" />
     </section>
   </section>
 </template>
 
 <script setup>
 import FoodCard from '@/components/FoodCard.vue'
+import { foods } from '@/data/foods'
+import { computed } from 'vue'
 
-const foods = [
-  {
-    id: 1,
-    name: 'Jollof Rice',
-    price: 5000,
-    image:
-      'https://image2url.com/r2/default/images/1769120124455-c94ede40-e3be-43b6-afa2-5d8099c4136e.jpeg',
-  },
-  {
-    id: 2,
-    name: 'Fruit Salad',
-    price: 4500,
-    image:
-      'https://image2url.com/r2/default/images/1769156794327-c6425b2f-763b-4058-98ff-c86b23e60610.jpg',
-  },
-  {
-    id: 3,
-    name: 'Bole and Fish',
-    price: 7000,
-    image:
-      'https://image2url.com/r2/default/images/1769155837445-cc8c64a4-f61b-40af-9a94-c912ba72118e.jpg',
-  },
-  {
-    id: 4,
-    name: 'Jollof Rice',
-    price: 4500,
-    image:
-      'https://image2url.com/r2/default/images/1769155907234-e4dd47b7-4afd-4469-a852-e4d14ce7e211.jpg',
-  },
-  {
-    id: 1,
-    name: 'Bole and Fish',
-    price: 7000,
-    image:
-      'https://image2url.com/r2/default/images/1769155837445-cc8c64a4-f61b-40af-9a94-c912ba72118e.jpg',
-  },
-  {
-    id: 2,
-    name: 'Jollof Rice',
-    price: 5000,
-    image:
-      'https://image2url.com/r2/default/images/1769120124455-c94ede40-e3be-43b6-afa2-5d8099c4136e.jpeg',
-  },
-  {
-    id: 3,
-    name: 'Jollof Rice',
-    price: 4500,
-    image:
-      'https://image2url.com/r2/default/images/1769155907234-e4dd47b7-4afd-4469-a852-e4d14ce7e211.jpg',
-  },
-  {
-    id: 4,
-    name: 'Fruit Salad',
-    price: 4500,
-    image:
-      'https://image2url.com/r2/default/images/1769156794327-c6425b2f-763b-4058-98ff-c86b23e60610.jpg',
-  },
-  {
-    id: 1,
-    name: 'Jollof Rice',
-    price: 5000,
-    image:
-      'https://image2url.com/r2/default/images/1769120124455-c94ede40-e3be-43b6-afa2-5d8099c4136e.jpeg',
-  },
-  {
-    id: 2,
-    name: 'Fruit Salad',
-    price: 4500,
-    image:
-      'https://image2url.com/r2/default/images/1769156794327-c6425b2f-763b-4058-98ff-c86b23e60610.jpg',
-  },
-  {
-    id: 3,
-    name: 'Bole and Fish',
-    price: 7000,
-    image:
-      'https://image2url.com/r2/default/images/1769155837445-cc8c64a4-f61b-40af-9a94-c912ba72118e.jpg',
-  },
-  {
-    id: 4,
-    name: 'Jollof Rice',
-    price: 4500,
-    image:
-      'https://image2url.com/r2/default/images/1769155907234-e4dd47b7-4afd-4469-a852-e4d14ce7e211.jpg',
-  },
-  {
-    id: 4,
-    name: 'cake',
-    price: 20000,
-    image:
-      'https://image2url.com/r2/default/images/1769805287001-37933905-3db8-47ec-abdf-c7ec54465a2b.jpeg',
-  },
-  {
-    id: 4,
-    name: 'Milkshake',
-    price: 8500,
-    image:
-      'https://image2url.com/r2/default/images/1769805451378-1411fc97-cb3c-4f13-b7ce-b0fb59f517b5.jpeg',
-  },
-]
+const regularFoods = computed(() => {
+  return foods.filter((item) => {
+    return item.type === 'regular'
+  })
+})
 </script>
