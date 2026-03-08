@@ -5,6 +5,7 @@ import Reviews from '../pages/Reviews.vue'
 import Blog from '../pages/Blog.vue'
 import Delivery from '@/pages/Delivery.vue'
 import FoodDetail from '@/components/FoodDetail.vue'
+import Preloader from '@/pages/Preloader.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,6 +26,11 @@ const router = createRouter({
       name: 'FoodDetail',
       component: FoodDetail
     },
+    // {
+    //   path: '/Preloader',
+    //   name: 'Preloader',
+    //   component: Preloader
+    // },
     {
       path: '/reviews',
       name: 'Reviews',
