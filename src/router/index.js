@@ -6,6 +6,7 @@ import Blog from '../pages/Blog.vue'
 import Delivery from '@/pages/Delivery.vue'
 import FoodDetail from '@/components/FoodDetail.vue'
 import Preloader from '@/pages/Preloader.vue'
+import NotFound from '@/pages/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,6 +46,11 @@ const router = createRouter({
       path: '/delivery',
       name: 'Delivery',
       component: Delivery
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: NotFound
     },
   ],
 })
