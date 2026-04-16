@@ -2,7 +2,7 @@
   <main>
     <section
       v-if="isLoading"
-      class="fixed inset-0 bg-green-600 flex items-center justify-center z-[1000]"
+      class="fixed inset-0 bg-red-500 flex items-center justify-center z-[1000]"
     >
       <div class="loader"></div>
     </section>
