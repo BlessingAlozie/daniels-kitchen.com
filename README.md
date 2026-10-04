@@ -1,45 +1,42 @@
-# daniels-kitchen
+# Daniel's Kitchen 🍲
 
-This template should help get you started developing with Vue 3 in Vite.
+A website for **Daniel's Kitchen**, a home kitchen in Lagos offering fresh homemade meals, fast delivery and catering services.
 
-## Recommended IDE Setup
+🔗 **Live site:** [daniels-kitchen-com.vercel.app](https://daniels-kitchen-com.vercel.app)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+> 🚧 **Work in progress.** I'm actively building this project. Currently working on: the delivery flow, where customers enter their delivery address and details before ordering.
 
-## Recommended Browser Setup
+## About the project
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+I designed and built this project end to end: first the UI in **Figma**, then the frontend in **Vue.js**. My goal was a warm, simple experience that makes it easy for customers in Lagos to browse meals, see prices, and order or book catering.
 
-## Customize configuration
+## Features
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- [x] [Landing page with hero, services and call to action]
+- [x] [Menu section with meals and prices]
+- [x] [Responsive layout for mobile and desktop]
+- [ ] Delivery flow: delivery address and order details
+- [ ] [Blog flow]
 
-## Project Setup
 
-```sh
+## Tech stack
+
+- **Design:** Figma
+- **Frontend:** Vue.js, JavaScript, HTML, CSS Tailwind CSS
+- **Deployment:** Vercel
+
+## Screenshots
+
+<img width="1900" height="944" alt="image" src="https://github.com/user-attachments/assets/561c2c2e-3511-4885-84d6-f9b7c4fbd1ff" />
+
+
+## Run locally
+
+```bash
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+---
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
-# daniels-kitchen.com
+Designed and built by **Blessing Alozie** · [Portfolio](https://blessingalozie.xyz) · [LinkedIn](https://linkedin.com/in/blessingalozie1)
